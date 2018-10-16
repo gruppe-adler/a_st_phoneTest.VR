@@ -1,0 +1,6 @@
+enableDebugConsole = 1;
+
+
+class cfgFunctions {
+    #include "grad-landline\cfgFunctions.hpp"
+};
