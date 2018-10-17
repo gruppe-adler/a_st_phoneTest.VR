@@ -4,6 +4,7 @@ class GRAD_landline {
         file = grad-landline\functions\client;
 
         class addAction;
+        class setTFARfakeRadio;
     };
 
     class server {

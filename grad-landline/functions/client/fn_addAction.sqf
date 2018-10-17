@@ -14,7 +14,8 @@ _object addAction [
     "Call Number",
     {
         params ["_target", "_caller", "_actionId", "_arguments"];
-            [_target, "1337"] call GRAD_landline_fnc_startCall;    
+
+            [_target] call GRAD_landline_fnc_callStart;
     },
     [],1.5,true,true,"",
     "_this distance _target < 2 && (!(player getVariable ['GRAD_landline_isCalling', false]))"
@@ -24,7 +25,7 @@ _object addAction [
     "End Call",
     {
         params ["_target", "_caller", "_actionId", "_arguments"];
-            ["1337"] call GRAD_landline_fnc_endCall;    
+            [_target] call GRAD_landline_fnc_callEnd;   
     },
     [],1.5,true,true,"",
     "_this distance _target < 2 && (player getVariable ['GRAD_landline_isCalling', false])"
