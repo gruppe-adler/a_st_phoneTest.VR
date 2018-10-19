@@ -10,6 +10,10 @@ private _callAction = ["startCall", "Call someone", "", {
 
 params ["_object"];
 
+if (isNull _object) exitWith { diag_log format ["GRAD_landline: cant add action to deleted object %1", _object]; };
+
+
+// todo make ace interact instead of mousewheel menu
 _object addAction [
     "Call Number",
     {

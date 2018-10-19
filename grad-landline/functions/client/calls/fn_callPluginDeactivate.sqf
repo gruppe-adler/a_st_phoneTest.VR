@@ -2,6 +2,7 @@ params ["_phoneObject", "_lineNumber"];
 
 player setVariable ['GRAD_landline_isCalling', false];
 
+
 [_phoneObject, _lineNumber, false] call GRAD_landline_fnc_setTFARfakeRadio;
 
 private _hintText = format[
