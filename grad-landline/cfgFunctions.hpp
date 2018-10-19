@@ -9,7 +9,7 @@ class GRAD_landline {
     class client_calls {
         file = grad-landline\functions\client\calls;
 
-        class calllPluginActivate;
+        class callPluginActivate;
         class callPluginDeactivate;
         class callStart;
 

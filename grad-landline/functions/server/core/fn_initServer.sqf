@@ -1,4 +1,4 @@
-#include "grad-landline\config.hpp"
+#include "..\..\..\config.hpp"
 
 if (!isServer) exitWith {};
 

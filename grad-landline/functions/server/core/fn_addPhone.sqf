@@ -13,7 +13,7 @@ params ["_object"];
 if (!isServer) exitWith {};
 
 
-_object setVariable ["GRAD_landline_isPhone", true, true];#
+_object setVariable ["GRAD_landline_isPhone", true, true];
 
 
 [_object] call GRAD_landline_fnc_assignPhoneNumber;
