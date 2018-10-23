@@ -3,7 +3,7 @@ params ["_object"];
 private _newNumber = [GRAD_LANDLINE_ALLNUMBERS] call GRAD_landline_fnc_generatePhoneNumber;
 
 private _currentNumber = missionNamespace getVariable ["GRAD_LANDLINE_ALLNUMBERS", []];
-_currentNumber append [_object, _newNumber];
+_currentNumber pushback [_object, _newNumber];
 missionNamespace setVariable ["GRAD_LANDLINE_ALLNUMBERS", _currentNumber, true];
 
 

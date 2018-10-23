@@ -12,7 +12,8 @@
 */
 #include "..\..\..\config.hpp"
 
-params ["_existingNumbers"];
+params ["_phoneList"];
+
 
 private _result = [];
 
@@ -24,7 +25,7 @@ while {true} do {
 
 	_result = _phonePrefixCurrent + _phoneBaseNumber;
 
-	if (_existingNumbers find _result == -1) exitWith {};
+	if (_phoneList find _result == -1) exitWith {};
 
     systemChat format ["exiting with %1 ", _result];
 };
