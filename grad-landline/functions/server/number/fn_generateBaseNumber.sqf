@@ -19,8 +19,8 @@ private _number = [];
 
 for [{_i=0}, {_i<_length}, {_i=_i+1}] do
 {
-	_nextNumber = [_i] call _getRandomDigit;
-	_number append _nextNumber;
+	private _nextNumber = [_i] call _getRandomDigit;
+	_number pushBack _nextNumber;
 };
 
 _number

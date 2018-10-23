@@ -19,7 +19,7 @@ _object addAction [
     {
         params ["_target", "_caller", "_actionId", "_arguments"];
 
-            [_target] call GRAD_landline_fnc_callStart;
+            [_target] call GRAD_landline_fnc_createPhoneList;
     },
     [],1.5,true,true,"",
     "_this distance _target < 2 && (!(player getVariable ['GRAD_landline_isCalling', false]))"
@@ -29,8 +29,19 @@ _object addAction [
     "End Call",
     {
         params ["_target", "_caller", "_actionId", "_arguments"];
-            [_target] call GRAD_landline_fnc_callEnd;   
+            [_target] call GRAD_landline_fnc_callEnd;
     },
     [],1.5,true,true,"",
     "_this distance _target < 2 && (player getVariable ['GRAD_landline_isCalling', false])"
+];
+
+_object addAction [
+    "Show Number",
+    {
+        params ["_target", "_caller", "_actionId", "_arguments"];
+
+            hint format ["%1", _target getVariable ["GRAD_LANDLINE_NUMBER_ASSIGNED","no Number"]];
+    },
+    [],1.5,true,true,"",
+    "_this distance _target < 2"
 ];

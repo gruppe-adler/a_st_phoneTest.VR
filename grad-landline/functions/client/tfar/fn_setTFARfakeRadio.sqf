@@ -1,14 +1,13 @@
 params ["_phoneObject", "_frequency", "_status"];
 
 
-TFAR_MAXREMOTELRRADIODISTANCE = 50; // i want to handle distance separately
-
+private _TFAR_MAX_LR_CHANNELS = 4;
 
 
 
 _frequencies = [];
 
-for "_i" from 0 to TFAR_MAX_LR_CHANNELS step 1 do {
+for "_i" from 0 to _TFAR_MAX_LR_CHANNELS step 1 do {
         _frequencies set [_i, _frequency];
 };
 

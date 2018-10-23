@@ -12,10 +12,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={2968.7407,11.964448,3716.0935};
-		dir[]={-0.098166108,-0.54626882,-0.83195198};
-		up[]={-0.064016439,0.8375631,-0.54254889};
-		aside[]={-0.99320513,-8.175266e-008,0.11719434};
+		pos[]={2957.1006,10.272773,3671.2815};
+		dir[]={0.3242164,-0.57280022,-0.75287777};
+		up[]={0.22655761,0.81968182,-0.52610016};
+		aside[]={-0.91847318,-1.0212825e-006,-0.395529};
 	};
 };
 binarizationWanted=0;
@@ -111,7 +111,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="call{[this] call GRAD_landline_fnc_addAction;}";
+				init="call{[this] call GRAD_landline_fnc_addPhone;}";
 			};
 			id=0;
 			type="Land_PhoneBooth_02_malden_F";
@@ -121,14 +121,14 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2939.8071,6.0464573,3696.1221};
+				position[]={2939.8069,6.0464573,3696.1221};
 				angles[]={0,3.1353095,0};
 			};
 			side="Empty";
 			flags=5;
 			class Attributes
 			{
-				init="call{[this] call GRAD_landline_fnc_addAction;}";
+				init="call{[this] call GRAD_landline_fnc_addPhone;}";
 			};
 			id=1;
 			type="Land_PhoneBooth_02_F";
@@ -145,7 +145,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={2967.855,5.0014391,3700.6873};
+						position[]={2958.4023,5.0014391,3665.7837};
+						angles[]={0,2.2590439,0};
 					};
 					side="Civilian";
 					flags=7;
@@ -198,7 +199,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="call{[this] call GRAD_landline_fnc_addAction;}";
+				init="call{[this] call GRAD_landline_fnc_addPhone;}";
 			};
 			id=18;
 			type="Land_PhoneBooth_02_F";
@@ -215,7 +216,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="call{[this] call GRAD_landline_fnc_addAction;}";
+				init="call{[this] call GRAD_landline_fnc_addPhone;}";
 			};
 			id=19;
 			type="Land_PhoneBooth_02_malden_F";
@@ -232,7 +233,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={2966.6399,5.0014391,3701.7266};
+						position[]={2980.0308,5.0014391,3726.6323};
 					};
 					side="Civilian";
 					flags=7;
@@ -261,7 +262,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={2967.4414,5.0014391,3702.0864};
+						position[]={2939.8442,5.0014391,3697.3086};
+						angles[]={0,3.0875371,0};
 					};
 					side="Civilian";
 					flags=7;
@@ -290,7 +292,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={2966.5005,5.0014391,3700.7703};
+						position[]={2951.3438,5.0014391,3727.929};
+						angles[]={0,4.7067065,0};
 					};
 					side="Civilian";
 					flags=7;
@@ -319,7 +322,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={2965.7188,5.0014391,3701.3826};
+						position[]={2993.9041,5.0014391,3697.644};
+						angles[]={0,1.6431192,0};
 					};
 					side="Civilian";
 					flags=7;
@@ -348,7 +352,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="call{[this] call GRAD_landline_fnc_addAction;}";
+				init="call{[this] call GRAD_landline_fnc_addPhone;}";
 			};
 			id=28;
 			type="Land_PhoneBooth_02_F";

@@ -4,11 +4,14 @@ class GRAD_landline {
         file = grad-landline\functions\client\actions;
 
         class addAction;
+        class createPhoneList;
     };
 
     class client_calls {
         file = grad-landline\functions\client\calls;
 
+        class callAccept;
+        class callEnd;
         class callPluginActivate;
         class callPluginDeactivate;
         class callStart;
@@ -49,8 +52,10 @@ class GRAD_landline {
     class server_number {
        file = grad-landline\functions\server\number;
 
+       class assignPhoneNumber;
        class extractNumberFromPrefix;
        class generateBaseNumber;
+       class generatePhoneNumber;
     };
     
 };

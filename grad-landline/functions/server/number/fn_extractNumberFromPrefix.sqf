@@ -1,7 +1,7 @@
 params ["_string"];
-_result = [];
+private _result = [];
 
-_splittedString = _string splitString "";
+private _splittedString = _string splitString "";
 
 {
 	_result = _result + [parseNumber _x];	  
