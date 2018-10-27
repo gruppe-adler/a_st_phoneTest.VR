@@ -4,7 +4,10 @@ class GRAD_landline {
         file = grad-landline\functions\client\actions;
 
         class addAction;
+        class cleanPhoneBookMap;
         class createPhoneList;
+        class onPhoneBookEntrySelect;
+        class onPhoneBookMapClick;
     };
 
     class client_calls {
