@@ -41,7 +41,7 @@ class GRAD_landline {
         file = grad-landline\functions\client\tfar;
 
       class setTFARfakeRadio;
-    }
+    };
 
 
 
