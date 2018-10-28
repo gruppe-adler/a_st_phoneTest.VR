@@ -1,7 +1,5 @@
 params ["_callerPhoneObject", "_receiverPhoneObject"];
 
-systemChat "callStart - init";
-
 // prevent calling yourself
 if (_callerPhoneObject isEqualTo _receiverPhoneObject) exitWith {
     hint "cant call yourself, dumbass";
@@ -24,6 +22,7 @@ if (count _callerNumber isEqualTo 0) exitWith { diag_log "error, no number"; };
 if ([_receiverPhoneObject, "idle"] call GRAD_landline_fnc_callGetStatus) then {
     // self assign status
     [_callerPhoneObject, "calling"] call GRAD_landline_fnc_callSetStatus;
+    _receiverPhoneObject setVariable ["GRAD_landline_calledBy", player, true];
 
     // let server handle receiver status
     [_receiverPhoneObject] remoteExec ["GRAD_landline_fnc_callRinging", 2];
