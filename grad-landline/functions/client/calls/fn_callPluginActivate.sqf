@@ -2,8 +2,10 @@ params ["_phoneObject", "_lineNumber"];
 
 player setVariable ['GRAD_landline_isCalling', true];
 
+private _encryptionKey = "grad_landline";
 
-[_phoneObject, _lineNumber, true] call GRAD_landline_fnc_setTFARfakeRadio;
+
+[_phoneObject, _lineNumber, _encryptionKey, true] call GRAD_landline_fnc_setTFARfakeRadio;
 
 private _hintText = format[
 							"Anruf läuft",
@@ -14,10 +16,21 @@ private _hintText = format[
 							1,
 							_lineNumber
 						];
+
+/*
+
+ tabs are important here for correctly working in TS plugin!
+ _lineNumber - frequency
+ grad_landline - encryption
+ 100000 - range
+ phone - tf_subtype
+ tf_mr3000 fake classname // not sure if important
+
+*/
 private _pluginCommand = format[
 								"TANGENT_LR	PRESSED	%1%2	%3	%4	%5",
 								_lineNumber,
-								"grad_landline",
+								_encryptionKey,
 								100000,
 								"phone",
 								"tf_mr3000"

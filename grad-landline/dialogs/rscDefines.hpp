@@ -21,10 +21,10 @@ class GRAD_landline_RscButton
   colorFocused[] ={0,0,0,0.7};
   colorShadow[] = {0,0,0,0};
   colorBorder[] = {0,0,0,0};
-  soundEnter[] = {"\ca\ui\data\sound\onover",0.09,1};
-  soundPush[] = {"\ca\ui\data\sound\new1",0,0};
-  soundClick[] = {"\ca\ui\data\sound\onclick",0.07,1};
-  soundEscape[] = {"\ca\ui\data\sound\onescape",0.09,1};
+  soundEnter[] = {"\A3\ui_f\data\sound\onover", 0.09, 1};
+  soundPush[] = {"\A3\ui_f\data\sound\new1", 0.0, 0};
+  soundClick[] = {"\A3\ui_f\data\sound\onclick", 0.07, 1};
+  soundEscape[] = {"\A3\ui_f\data\sound\onescape", 0.09, 1};
   style = 2; //2
   x = 0;
   y = 0;

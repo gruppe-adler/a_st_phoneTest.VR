@@ -2,8 +2,9 @@ params ["_phoneObject", "_lineNumber"];
 
 player setVariable ['GRAD_landline_isCalling', false];
 
+private _encryptionKey = "grad_landline";
 
-[_phoneObject, _lineNumber, false] call GRAD_landline_fnc_setTFARfakeRadio;
+[_phoneObject, _lineNumber, _encryptionKey, false] call GRAD_landline_fnc_setTFARfakeRadio;
 
 private _hintText = format[
 							"Anruf beendet",
@@ -18,7 +19,7 @@ private _hintText = format[
 private _pluginCommand = format[
 								"TANGENT_LR	RELEASED	%1%2	%3	%4",
 								_lineNumber,
-								"grad_landline",
+								_encryptionKey,
 								100000,
 								"phone"
 							];

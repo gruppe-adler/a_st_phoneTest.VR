@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=31;
+		nextID=33;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={2946.0112,10.758333,3704.2217};
-		dir[]={0.0058722328,-0.3612653,-0.93247306};
-		up[]={0.0022752692,0.93244749,-0.36127803};
-		aside[]={-1.0000058,-7.1465206e-007,-0.0062987492};
+		pos[]={2934.4407,35.470497,3766.5457};
+		dir[]={0.4151113,-0.32215488,-0.85082918};
+		up[]={0.14128564,0.94666576,-0.28958493};
+		aside[]={-0.8987413,8.3135092e-008,-0.43848702};
 	};
 };
 binarizationWanted=0;
@@ -108,14 +108,14 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2980.229,6.0464573,3728.0986};
+				position[]={2980.229,6.0464573,3728.0991};
 				angles[]={0,0.00013962634,0};
 			};
 			side="Empty";
 			flags=5;
 			class Attributes
 			{
-				init="call{[this] call GRAD_landline_fnc_addPhone;}";
+				init="call{[this, ""4""] call GRAD_landline_fnc_addPhone;}";
 			};
 			id=0;
 			type="Land_PhoneBooth_02_malden_F";
@@ -132,7 +132,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="call{[this] call GRAD_landline_fnc_addPhone;}";
+				init="call{[this, ""1""] call GRAD_landline_fnc_addPhone;}";
 			};
 			id=1;
 			type="Land_PhoneBooth_02_F";
@@ -196,14 +196,14 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2995.969,6.0464573,3697.2114};
+				position[]={2995.969,6.0464573,3697.2109};
 				angles[]={0,1.5685972,0};
 			};
 			side="Empty";
 			flags=5;
 			class Attributes
 			{
-				init="call{[this] call GRAD_landline_fnc_addPhone;}";
+				init="call{[this, ""3""] call GRAD_landline_fnc_addPhone;}";
 			};
 			id=18;
 			type="Land_PhoneBooth_02_F";
@@ -213,14 +213,14 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2949.8369,6.0464573,3727.8062};
+				position[]={2949.8369,6.0464573,3727.8059};
 				angles[]={0,4.6930332,0};
 			};
 			side="Empty";
 			flags=5;
 			class Attributes
 			{
-				init="call{[this] call GRAD_landline_fnc_addPhone;}";
+				init="call{[this,""0""] call GRAD_landline_fnc_addPhone;}";
 			};
 			id=19;
 			type="Land_PhoneBooth_02_malden_F";
@@ -349,14 +349,14 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2959.5735,6.0464573,3665.0251};
-				angles[]={0,2.3103359,0};
+				position[]={2959.573,6.0464573,3665.0249};
+				angles[]={0,2.3103271,0};
 			};
 			side="Empty";
 			flags=5;
 			class Attributes
 			{
-				init="call{[this] call GRAD_landline_fnc_addPhone;}";
+				init="call{[this,""2""] call GRAD_landline_fnc_addPhone;}";
 			};
 			id=28;
 			type="Land_PhoneBooth_02_F";

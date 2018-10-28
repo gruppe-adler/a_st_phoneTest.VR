@@ -22,17 +22,38 @@ _object addAction [
             [_target] call GRAD_landline_fnc_createPhoneList;
     },
     [],1.5,true,true,"",
-    "_this distance _target < 2 && (!(player getVariable ['GRAD_landline_isCalling', false]))"
+    "_this distance _target < 2 && 
+    (_target getVariable ['GRAD_landline_phoneStatus', 'idle'] == 'idle') && 
+    (!(player getVariable ['GRAD_landline_isCalling', false]))"
+];
+
+_object addAction [
+    "Accept Call",
+    {
+        params ["_target", "_caller", "_actionId", "_arguments"];
+
+            [_target] call GRAD_landline_fnc_callAccept;
+    },
+    [],1.5,true,true,"",
+    "_this distance _target < 2 && 
+    (_target getVariable ['GRAD_landline_phoneStatus', 'idle'] == 'ringing')"
 ];
 
 _object addAction [
     "End Call",
     {
         params ["_target", "_caller", "_actionId", "_arguments"];
-            [_target] call GRAD_landline_fnc_callEnd;
+            if (_target getVariable ['GRAD_landline_phoneStatus', 'idle'] == 'calling') then {
+                [_target] call GRAD_landline_fnc_callEnd;
+            } else {
+                [_target] call GRAD_landline_fnc_callWaitEnd;
+            };
     },
     [],1.5,true,true,"",
-    "_this distance _target < 2 && (player getVariable ['GRAD_landline_isCalling', false])"
+    "_this distance _target < 2 &&
+    (_target getVariable ['GRAD_landline_phoneStatus', 'idle'] == 'calling') ||
+    _this distance _target < 2 &&
+    (_target getVariable ['GRAD_landline_phoneStatus', 'idle'] == 'waiting')"
 ];
 
 _object addAction [

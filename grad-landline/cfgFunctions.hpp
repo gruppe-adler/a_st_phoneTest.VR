@@ -15,9 +15,13 @@ class GRAD_landline {
 
         class callAccept;
         class callEnd;
+        class callGetStatus;
         class callPluginActivate;
         class callPluginDeactivate;
+        class callSetStatus;
         class callStart;
+        class callWaitEnd;
+        class callWaiting;
 
     };
 
@@ -26,6 +30,8 @@ class GRAD_landline {
 
         class soundHangUp;
         class soundHookIn;
+        class soundRing;
+        class soundWaiting;
     };
 
     class client_far {
@@ -41,6 +47,7 @@ class GRAD_landline {
        file = grad-landline\functions\server\calls;
 
        class callRegister;
+       class callRinging;
        class callUnregister;
     };
 

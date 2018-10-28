@@ -2,6 +2,13 @@ enableDebugConsole = 1;
 
 #include "grad-landline\dialogs\rscPhoneBook.hpp"
 
+
+
 class cfgFunctions {
     #include "grad-landline\cfgFunctions.hpp"
+};
+
+
+class cfgSounds {
+    #include "grad-landline\cfgSounds.hpp"
 };
