@@ -30,6 +30,7 @@ class GRAD_landline {
 
         class soundHangUp;
         class soundHookIn;
+        class soundInterrupted;
         class soundRing;
         class soundWaiting;
     };

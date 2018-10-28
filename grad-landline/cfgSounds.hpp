@@ -56,6 +56,6 @@ class GRAD_landline_phoneRing2
 class GRAD_landline_phoneHangUp
 {
     name = "phoneHangUp";
-    sound[] = {"\grad-landline\sounds\phoneHangUp.ogg",0.75,1};
+    sound[] = {"\grad-landline\sounds\phoneHangUp.ogg",2,1};
     titles[] = {};
 };
