@@ -1,5 +1,7 @@
 params ["_receiverPhoneObject"];
 
+[player, _receiverPhoneObject] call GRAD_landline_fnc_callSetOwner;
+
 private _callerPhoneObject = _receiverPhoneObject getVariable ["GRAD_landline_calledBy", objNull];
 _receiverPhoneObject setVariable ["GRAD_landline_isCalled", false, true];
 [_receiverPhoneObject, "calling"] call GRAD_landline_fnc_callSetStatus;

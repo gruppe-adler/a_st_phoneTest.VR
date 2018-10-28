@@ -1,6 +1,9 @@
 params ["_callerPhoneObject", "_receiverPhoneObject"];
 
-systemChat "callStart - init";
+[player, _callerPhoneObject] call GRAD_landline_fnc_callSetOwner; // set self to owner of current phone
+[_receiverPhoneObject] call GRAD_landline_fnc_callSetCurrentPartnerObject; // cache partner object
+
+
 
 // prevent calling yourself
 if (_callerPhoneObject isEqualTo _receiverPhoneObject) exitWith {
@@ -12,10 +15,10 @@ if (_callerPhoneObject isEqualTo _receiverPhoneObject) exitWith {
     systemChat "callStart - wait";
 };
 
+
+
 private _callerNumber = _callerPhoneObject getVariable ["GRAD_LANDLINE_NUMBER_ASSIGNED", "no number"];
 
-// caching for easy access
-player setVariable ["GRAD_landline_objReceiver", _receiverPhoneObject];
 
 // if no number is assigned
 if (count _callerNumber isEqualTo 0) exitWith { diag_log "error, no number"; };

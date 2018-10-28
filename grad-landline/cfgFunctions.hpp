@@ -21,7 +21,6 @@ class GRAD_landline {
         class callSetStatus;
         class callStart;
         class callWaitEnd;
-        class callWaiting;
 
     };
 

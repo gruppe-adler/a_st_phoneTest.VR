@@ -44,9 +44,9 @@ _object addAction [
     {
         params ["_target", "_caller", "_actionId", "_arguments"];
             if (_target getVariable ['GRAD_landline_phoneStatus', 'idle'] == 'calling') then {
-                [_target] call GRAD_landline_fnc_callEnd;
+                [_target, 'calling'] call GRAD_landline_fnc_callEnd;
             } else {
-                [_target] call GRAD_landline_fnc_callWaitEnd;
+                [_target, 'waiting'] call GRAD_landline_fnc_callEnd;
             };
     },
     [],1.5,true,true,"",
