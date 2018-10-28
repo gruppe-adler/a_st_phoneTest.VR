@@ -15,4 +15,9 @@ if (count _callerNumber isEqualTo 0) exitWith { diag_log "error, no number"; };
 
 player setVariable ["GRAD_landline_objReceiver", objNull];
 
+[_callerPhoneObject, "idle"] call GRAD_landline_fnc_callSetStatus;
 [_receiverPhoneObject, "ending"] call GRAD_landline_fnc_callSetStatus;
+
+
+[player, "phoneHangUp"] remoteExec ["say3D", [0,-2] select isDedicated];
+systemChat "hanging up from calling";
