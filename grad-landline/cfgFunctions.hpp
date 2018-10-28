@@ -15,20 +15,23 @@ class GRAD_landline {
 
         class callAccept;
         class callEnd;
+        class callGetCallerObject;
+        class callGetCurrentPartnerObject;
+        class callGetOwner;
         class callGetStatus;
         class callPluginActivate;
         class callPluginDeactivate;
+        class callSetCallerObject;
+        class callSetCurrentPartnerObject;
+        class callSetOwner;
         class callSetStatus;
         class callStart;
-        class callWaitEnd;
 
     };
 
     class client_sounds {
         file = grad-landline\functions\client\sounds;
 
-        class soundHangUp;
-        class soundHookIn;
         class soundInterrupted;
         class soundRing;
         class soundWaiting;

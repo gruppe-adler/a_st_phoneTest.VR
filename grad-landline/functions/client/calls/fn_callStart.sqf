@@ -2,7 +2,7 @@ params ["_callerPhoneObject", "_receiverPhoneObject"];
 
 [player, _callerPhoneObject] call GRAD_landline_fnc_callSetOwner; // set self to owner of current phone
 [_receiverPhoneObject] call GRAD_landline_fnc_callSetCurrentPartnerObject; // cache partner object
-
+[_callerPhoneObject] call GRAD_landline_fnc_callSetCallerObject; // register object in partner object
 
 
 // prevent calling yourself
