@@ -37,7 +37,35 @@ switch (_status) do {
 
 
     case "calling" : {  
-    
+        // prevent calling yourself
+        if (_callerPhoneObject isEqualTo _receiverPhoneObject) exitWith {
+
+            [_callerPhoneObject, "waiting"] call GRAD_landline_fnc_callSetStatus;
+            [_callerPhoneObject] remoteExec ["GRAD_landline_fnc_soundWaiting", _caller];
+        };
+
+
+        private _callerNumber = _callerPhoneObject getVariable ["GRAD_LANDLINE_NUMBER_ASSIGNED", "no number"];
+        // if no number is assigned
+        if (count _callerNumber isEqualTo 0) exitWith { diag_log "error, no number"; };
+
+
+        // go to calling, if receiver can receive
+        if ([_receiverPhoneObject, "idle"] call GRAD_landline_fnc_callGetStatus) then {
+            // assign status to player
+            [_callerPhoneObject, "calling"] call GRAD_landline_fnc_callSetStatus;
+
+            // activate tfar stuff
+            [_callerPhoneObject, _callerNumber] remoteExec ["GRAD_landline_fnc_callPluginActivate", _caller];
+        } else {
+            [_callerPhoneObject, "waiting"] call GRAD_landline_fnc_callSetStatus;
+            [_callerPhoneObject] remoteExec ["GRAD_landline_fnc_soundWaiting", _caller];
+        };
+    };
+
+
+    case "callRunning" : {
+
     };
 
 
