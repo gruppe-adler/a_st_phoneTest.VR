@@ -5,6 +5,9 @@ class GRAD_landline {
 
         class addAction;
         class cleanPhoneBookMap;
+        class conditionAccept;
+        class conditionCall;
+        class conditionEnd;
         class createPhoneList;
         class onPhoneBookEntrySelect;
         class onPhoneBookMapClick;

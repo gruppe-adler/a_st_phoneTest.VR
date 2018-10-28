@@ -6,7 +6,7 @@ private _receiverPhoneObject = [] call GRAD_landline_fnc_callGetCurrentPartnerOb
 // get other side client
 private _recipient = objNull;
 if (!isNull _receiverPhoneObject) then {
-	_recipient = [_receiverPhoneObject] call GRAD_landline_fnc_getOwner;
+	_recipient = [_receiverPhoneObject] call GRAD_landline_fnc_callGetOwner;
 };
 
 // numbers
@@ -45,6 +45,11 @@ switch (_state) do {
 
 		// player aborting the call initiates interruption on other end
 		[_object, "remoteEnding"] remoteExec ["GRAD_landline_fnc_callEnd", _recipient];
+
+		// if there is no other owner, take command of other phone as well
+		if (isNull _recipient) then {
+			[_receiverPhoneObject, "idle"] call GRAD_landline_fnc_callSetStatus;
+		};
 		
 		// play sound
 		[_object, "GRAD_landline_phoneHangUp"] remoteExec ["say3D", [0,-2] select isDedicated];
