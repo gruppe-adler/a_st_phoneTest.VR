@@ -1,3 +1,4 @@
+#define CT_STATIC 0
 #define CT_BUTTON 1
 #define CT_LISTBOX 5
 
@@ -7,6 +8,23 @@
 #define ST_LEFT           0x00
 #define ST_CENTER         0x02
 #define ST_MULTI 0x10
+
+#define ST_KEEP_ASPECT_RATIO  0x800
+
+class GRAD_landline_RscPicture
+{
+ type = CT_STATIC;
+ idc = -1;
+ style = 48 + 0x800;
+ colorBackground[] = {0,0,0,0};
+ colorText[] = {1,1,1,1};
+ font = "TahomaB";
+ sizeEx = 0;
+ lineSpacing = 0;
+ text = "";
+ fixedWidth = 0;
+ shadow = 0;
+};
 
 class GRAD_landline_RscButton
 {

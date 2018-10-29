@@ -11,6 +11,7 @@ class GRAD_landline {
         class createPhoneList;
         class onPhoneBookEntrySelect;
         class onPhoneBookMapClick;
+        class rotarySetAngle;
     };
 
     class client_calls {
