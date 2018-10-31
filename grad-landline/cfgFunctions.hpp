@@ -11,6 +11,13 @@ class GRAD_landline {
         class createPhoneList;
         class onPhoneBookEntrySelect;
         class onPhoneBookMapClick;
+    };
+
+    class client_rotary {
+        file = grad-landline\functions\client\rotary;
+
+        class rotaryDialNumber;
+        class rotaryProcessInput;
         class rotarySetAngle;
     };
 

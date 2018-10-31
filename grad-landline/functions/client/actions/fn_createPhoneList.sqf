@@ -57,11 +57,12 @@ _button ctrlAddEventHandler ["ButtonClick", {
         private _objIndex = lbValue [ 2000, ( lbCurSel 2000 ) ];
         private _allNumbers = missionNamespace getVariable ["GRAD_LANDLINE_ALLNUMBERS", []];
         private _objReceiver = (_allNumbers select _objIndex) select 0;
+        private _receiverNumber = (_allNumbers select _objIndex) select 1;
 
         // hint format ['%1', _objReceiver];
 
         private _objCaller = player getVariable ["GRAD_landline_objCaller", objNull];
-        [_objCaller, _objReceiver] call GRAD_landline_fnc_callStart;
+        [_objCaller, _objReceiver, _receiverNumber] spawn GRAD_landline_fnc_callStart;
 
         // debug
         private _selectionMarker = createMarkerLocal ["mrk_grad_landlinePhoneCaller", position _objCaller];

@@ -1,8 +1,12 @@
-params ["_callerPhoneObject", "_receiverPhoneObject"];
+params ["_callerPhoneObject", "_receiverPhoneObject", "_receiverNumber"];
+
+private _dialing = [_receiverNumber] spawn GRAD_landline_fnc_rotaryDialNumber;
+
+waitUntil { scriptDone _dialing };
 
 [player, _callerPhoneObject] call GRAD_landline_fnc_callSetOwner; // set self to owner of current phone
 [_receiverPhoneObject] call GRAD_landline_fnc_callSetCurrentPartnerObject; // cache partner object
-[_callerPhoneObject] call GRAD_landline_fnc_callSetCallerObject; // register object in partner object
+[_receiverPhoneObject, _callerPhoneObject] call GRAD_landline_fnc_callSetCallerObject; // register object in partner object
 
 
 // prevent calling yourself

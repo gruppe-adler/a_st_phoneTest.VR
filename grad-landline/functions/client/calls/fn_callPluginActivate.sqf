@@ -43,5 +43,6 @@ private _pluginCommand = format[
 	_phoneObject distance player > 3 || (!(player getVariable ['GRAD_landline_isCalling', false]))
 },
 {
+	params ["_phoneObject"];
 	[_phoneObject, _lineNumber] call GRAD_landline_fnc_endCall;
-}, [_target]] call CBA_fnc_waitUntilAndExecute;
+}, [_phoneObject]] call CBA_fnc_waitUntilAndExecute;

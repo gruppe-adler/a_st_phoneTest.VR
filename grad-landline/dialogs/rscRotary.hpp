@@ -8,7 +8,7 @@ class grad_landline_rscRotary {
     enableSimulation = 1;
     enableDisplay = 1;
 
-    onLoad = "uiNamespace setVariable ['grad_landline_rscRotary', _this select 0]; [_this select 0] spawn GRAD_landline_fnc_rotarySetAngle;";
+    onLoad = "uiNamespace setVariable ['grad_landline_rscRotary', _this select 0]; [0] spawn GRAD_landline_fnc_processInput;";
     onUnload = "uiNamespace setVariable ['grad_landline_rscRotary', controlNull];";
 
     class ControlsBackground { };
