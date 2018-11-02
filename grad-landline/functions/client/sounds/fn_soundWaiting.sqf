@@ -4,11 +4,12 @@ params ["_callerPhoneObject"];
     params ["_args", "_handle"];
     _args params ["_callerPhoneObject"];
 
-    if (!([_callerPhoneObject, "waiting"] call GRAD_landline_fnc_callGetStatus)) exitWith { 
+    if (!([_callerPhoneObject, "ringing"] call GRAD_landline_fnc_callGetStatus) ||
+        !(player getVariable ['GRAD_landline_isCalling', false])) exitWith { 
         [_handle] call CBA_fnc_removePerFrameHandler; 
     };
 
-    player say (selectRandom ["GRAD_landline_phoneBusy1", "GRAD_landline_phoneBusy2", "GRAD_landline_phoneBusy3"]);
-    systemChat "busybeep";
+    [selectRandom ["GRAD_landline_phoneBeep1", "GRAD_landline_phoneBeep2"]] call BIS_fnc_playSound;
+    systemChat "beep";
 
-}, 1, [_callerPhoneObject]] call CBA_fnc_addPerFrameHandler;
+}, 3, [_callerPhoneObject]] call CBA_fnc_addPerFrameHandler;

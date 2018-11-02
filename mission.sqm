@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={2912.4197,83.839447,3646.4749};
-		dir[]={0.55616421,-0.59759933,0.577555};
-		up[]={0.41455692,0.80175585,0.43050092};
-		aside[]={0.72032559,4.7861249e-007,-0.69364613};
+		pos[]={2933.5625,29.956951,3731.1028};
+		dir[]={-0.011747844,-0.37683165,-0.92623138};
+		up[]={-0.0047813696,0.92625231,-0.3768664};
+		aside[]={-0.99994189,-1.8978062e-007,0.01268334};
 	};
 };
 binarizationWanted=0;
@@ -115,7 +115,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="call{[this, ""1234567890""] call GRAD_landline_fnc_addPhone;}";
+				init="call{[this, ""4""] call GRAD_landline_fnc_addPhone;}";
 			};
 			id=0;
 			type="Land_PhoneBooth_02_malden_F";
@@ -125,14 +125,14 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2939.8069,6.0464573,3696.1221};
+				position[]={2948.9231,6.0464573,3672.6833};
 				angles[]={0,3.1353095,0};
 			};
 			side="Empty";
 			flags=5;
 			class Attributes
 			{
-				init="call{[this, ""1234567890""] call GRAD_landline_fnc_addPhone;}";
+				init="call{[this, ""1""] call GRAD_landline_fnc_addPhone;}";
 			};
 			id=1;
 			type="Land_PhoneBooth_02_F";
@@ -203,7 +203,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="call{[this, ""1234567890""] call GRAD_landline_fnc_addPhone;}";
+				init="call{[this, ""3""] call GRAD_landline_fnc_addPhone;}";
 			};
 			id=18;
 			type="Land_PhoneBooth_02_F";
@@ -220,7 +220,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="call{[this, ""1234567890""] call GRAD_landline_fnc_addPhone;}";
+				init="call{[this,""0""] call GRAD_landline_fnc_addPhone;}";
 			};
 			id=19;
 			type="Land_PhoneBooth_02_malden_F";
@@ -266,7 +266,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={2939.8442,5.0014391,3697.3086};
+						position[]={2948.9604,5.0014391,3673.8699};
 						angles[]={0,3.0875371,0};
 					};
 					side="Civilian";
@@ -356,7 +356,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="call{[this, ""1234567890""] call GRAD_landline_fnc_addPhone;}";
+				init="call{[this,""2""] call GRAD_landline_fnc_addPhone;}";
 			};
 			id=28;
 			type="Land_PhoneBooth_02_F";

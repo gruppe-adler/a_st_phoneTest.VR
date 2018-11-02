@@ -4,11 +4,11 @@
 
 */
 
-params ["_receiverObject"];
+params ["_receiverPhoneObject"];
 
-[_receiverObject, "ringing"] call GRAD_landline_fnc_callSetStatus;
+[_receiverPhoneObject, "ringing"] call GRAD_landline_fnc_callSetStatus;
 
-private _position = getPos _receiverObject;
+private _position = getPos _receiverPhoneObject;
 private _boundingBox = boundingBoxReal vehicle player;
 _boundingBox params ["_p1", "_p2"];
 private _maxHeight = abs ((_p2 select 2) - (_p1 select 2));
@@ -23,6 +23,6 @@ private _dummy = createVehicle ["Sign_Sphere25cm_Geometry_F", _position, [], 0, 
 
 [_dummy] remoteExec ["GRAD_landline_fnc_soundRing", [0,-2] select isDedicated];
 
-waitUntil { !([_receiverObject, "ringing"] call GRAD_landline_fnc_callGetStatus) };
+waitUntil { !([_receiverPhoneObject, "ringing"] call GRAD_landline_fnc_callGetStatus) };
 
 deleteVehicle _dummy;
