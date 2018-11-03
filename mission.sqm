@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=33;
+		nextID=38;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={2933.5625,29.956951,3731.1028};
-		dir[]={-0.011747844,-0.37683165,-0.92623138};
-		up[]={-0.0047813696,0.92625231,-0.3768664};
-		aside[]={-0.99994189,-1.8978062e-007,0.01268334};
+		pos[]={2950.4268,17.265028,3666.8103};
+		dir[]={0.71156663,-0.55998552,0.42454672};
+		up[]={0.480946,0.82845443,0.28694874};
+		aside[]={0.51240885,6.0527236e-007,-0.85883176};
 	};
 };
 binarizationWanted=0;
@@ -30,13 +30,14 @@ addons[]=
 	"A3_Characters_F",
 	"ace_nouniformrestrictions",
 	"A3_Characters_F_Orange",
-	"cba_xeh"
+	"cba_xeh",
+	"po_factions_fic"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=5;
+		items=6;
 		class Item0
 		{
 			className="A3_Structures_F_Argo";
@@ -72,6 +73,12 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item5
+		{
+			className="po_factions_fic";
+			name="po_factions_fic";
+			author="Leight, Keeway";
+		};
 	};
 };
 randomSeed=9853356;
@@ -102,7 +109,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=10;
+		items=11;
 		class Item0
 		{
 			dataType="Object";
@@ -360,6 +367,84 @@ class Mission
 			};
 			id=28;
 			type="Land_PhoneBooth_02_F";
+		};
+		class Item10
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={2955.4121,8.2304878,3651.207};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this setObjectTextureGlobal [0, ""mi8_gdr_co.paa""];}";
+				textures="LOP_UA";
+			};
+			id=37;
+			type="LOP_SLA_Mi8MT_Cargo";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="rhs_decalNumber_type";
+					expression="if(_value != 'NoChange')then{ _this setVariable ['rhs_decalNumber_type', _value];[_this,[['Number', cRHSAIRMI8NumberPlaces, _value]]] call rhs_fnc_decalsInit}";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="HandpaintBlack";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="rhs_decalTail";
+					expression="[_this,[['Label', cRHSAIRMI8TailPlaces, 'Aviation',_value]]] call rhs_fnc_decalsInit";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="rhs_decalNumber";
+					expression="if( _value >= 0)then{if( _value == 0)then{{[_this setobjectTexture [_x,'a3\data_f\clear_empty.paa']]}foreach cRHSAIRMI8NumberPlaces}else{[_this, [['Number', cRHSAIRMI8NumberPlaces, _this getVariable ['rhs_decalNumber_type','AviaYellow'], _value] ] ] call rhs_fnc_decalsInit}};";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=13;
+						};
+					};
+				};
+				nAttributes=3;
+			};
 		};
 	};
 };

@@ -38,11 +38,16 @@ private _pluginCommand = format[
 
 [_hintText, _pluginCommand, [0,-1] select TFAR_showTransmittingHint] call TFAR_fnc_processTangent;
 
+
+systemChat format ["grad-landline-debug: linenumber: %1, encryption: %2", _lineNumber, _encryptionKey];
+diag_log format ["grad-landline-debug: linenumber: %1, encryption: %2", _lineNumber, _encryptionKey];
+
 [{
 	params ["_phoneObject"];
 	_phoneObject distance player > 3 || (!(player getVariable ['GRAD_landline_isCalling', false]))
 },
 {
-	params ["_phoneObject"];
+	params ["_phoneObject", "_lineNumber"];
 	[_phoneObject, _lineNumber] call GRAD_landline_fnc_endCall;
-}, [_phoneObject]] call CBA_fnc_waitUntilAndExecute;
+	systemChat "ending call because too far away";
+}, [_phoneObject,_lineNumber]] call CBA_fnc_waitUntilAndExecute;

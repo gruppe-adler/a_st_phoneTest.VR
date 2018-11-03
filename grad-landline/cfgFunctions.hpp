@@ -4,6 +4,7 @@ class GRAD_landline {
         file = grad-landline\functions\client\actions;
 
         class addAction;
+        class addSelfAction;
         class cleanPhoneBookMap;
         class conditionAccept;
         class conditionCall;
@@ -39,6 +40,13 @@ class GRAD_landline {
         class callStart;
 
     };
+
+    class client_hooking {
+        file = grad-landline\functions\client\hooking;
+
+        class showCalls;
+    };
+
 
     class client_sounds {
         file = grad-landline\functions\client\sounds;
