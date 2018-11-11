@@ -43,11 +43,11 @@ systemChat format ["grad-landline-debug: linenumber: %1, encryption: %2", _lineN
 diag_log format ["grad-landline-debug: linenumber: %1, encryption: %2", _lineNumber, _encryptionKey];
 
 [{
-	params ["_phoneObject"];
-	_phoneObject distance player > 3 || (!(player getVariable ['GRAD_landline_isCalling', false]))
+	params ["_phoneObject", "_lineNumber"];
+	(_phoneObject distance player > 3)
 },
 {
 	params ["_phoneObject", "_lineNumber"];
-	[_phoneObject, _lineNumber] call GRAD_landline_fnc_endCall;
+	[_phoneObject, "calling"] call GRAD_landline_fnc_callEnd;
 	systemChat "ending call because too far away";
 }, [_phoneObject,_lineNumber]] call CBA_fnc_waitUntilAndExecute;

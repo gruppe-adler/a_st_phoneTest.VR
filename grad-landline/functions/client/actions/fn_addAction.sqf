@@ -21,7 +21,7 @@ _object addAction [
 
             [_target] call GRAD_landline_fnc_createPhoneList;
     },
-    [],1.5,true,true,"",
+    [],9,true,true,"",
     "[_this, _target] call GRAD_landline_fnc_conditionCall"
 ];
 
@@ -32,7 +32,7 @@ _object addAction [
 
             [_target] call GRAD_landline_fnc_callAccept;
     },
-    [],1.5,true,true,"",
+    [],10,true,true,"",
     "[_this, _target] call GRAD_landline_fnc_conditionAccept"
 ];
 
@@ -40,6 +40,7 @@ _object addAction [
     "End Call",
     {
         params ["_target", "_caller", "_actionId", "_arguments"];
+        systemChat str [_target, _caller, _actionId, _arguments];
 
             if ([_target, 'calling'] call GRAD_landline_fnc_callGetStatus) then {
                 [_target, 'calling'] call GRAD_landline_fnc_callEnd;
@@ -47,7 +48,7 @@ _object addAction [
                 [_target, 'waiting'] call GRAD_landline_fnc_callEnd;
             };
     },
-    [],1.5,true,true,"",
+    [],11,true,true,"",
     "[_this, _target] call GRAD_landline_fnc_conditionEnd"
 ];
 

@@ -43,12 +43,12 @@ switch (_state) do {
 		// set self to idle state
 		[_object, "idle"] call GRAD_landline_fnc_callSetStatus;
 
-		// player aborting the call initiates interruption on other end
-		[_object, "remoteEnding"] remoteExec ["GRAD_landline_fnc_callEnd", _recipient];
-
 		// if there is no other owner, take command of other phone as well
 		if (isNull _recipient) then {
 			[_receiverPhoneObject, "idle"] call GRAD_landline_fnc_callSetStatus;
+		} else {
+			// player aborting the call initiates interruption on other end
+			[_receiverPhoneObject, "remoteEnding"] remoteExec ["GRAD_landline_fnc_callEnd", _recipient]; // _object
 		};
 		
 		// play sound
