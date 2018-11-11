@@ -65,6 +65,7 @@ switch (_state) do {
 
 		// debug whats happening
 		systemChat "hanging up from calling";
+		player setVariable ['GRAD_landline_isCalling', false];
 	};
 
 
@@ -80,6 +81,7 @@ switch (_state) do {
 
 		// debug whats happening
 		systemChat "other side hung up";
+		player setVariable ['GRAD_landline_isCalling', false];
 	};
 	
 

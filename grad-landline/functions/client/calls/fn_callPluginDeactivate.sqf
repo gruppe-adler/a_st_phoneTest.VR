@@ -21,7 +21,7 @@ private _pluginCommand = format[
 								_lineNumber,
 								_encryptionKey,
 								100000,
-								"phone"
+								"airborne"
 							];
 
 [_hintText,_pluginCommand, [0,nil] select TFAR_showTransmittingHint] call TFAR_fnc_processTangent;

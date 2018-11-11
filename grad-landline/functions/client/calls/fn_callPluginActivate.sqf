@@ -32,7 +32,7 @@ private _pluginCommand = format[
 								_lineNumber,
 								_encryptionKey,
 								100000,
-								"phone",
+								"airborne",
 								"tf_mr3000"
 							];
 
