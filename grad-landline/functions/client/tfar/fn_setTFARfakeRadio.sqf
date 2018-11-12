@@ -30,7 +30,7 @@ ARRAY: Settings [
 private _settings = [0, TFAR_default_radioVolume, _frequencies, 2, _encryptionKey, -1, 0, nil, false, true];
 private _settingsID = "radio_settings";
 _phoneObject setVariable [_settingsID, _settings, true];
-TFAR_OverrideActiveLRRadio = if (_status) then { [_phoneObject, _settingsID] } else { [] };
+TFAR_OverrideActiveLRRadio = if (_status) then { [_phoneObject, _settingsID] } else { nil };
 
 
 systemChat format ["grad-landline-debug: TFAR_OverrideActiveLRRadio: %1", TFAR_OverrideActiveLRRadio];
