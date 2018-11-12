@@ -1,6 +1,6 @@
 /*
 private _callAction = ["startCall", "Call someone", "", {
-    [] call GRAD_landline_fnc_startCall;
+    [] call GRAD_landline_fnc_callStart;
 },
 {true}] call ace_interact_menu_fnc_createAction;
 

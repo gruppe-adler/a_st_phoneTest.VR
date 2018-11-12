@@ -11,7 +11,7 @@ private _callerNumber = _calledPhoneObject getVariable ["GRAD_LANDLINE_NUMBER_AS
 
 
 // activate tfar
-[_calledPhoneObject, _callerNumber] call GRAD_landline_fnc_callPluginActivate;
+[_calledPhoneObject, _callerNumber, _object] call GRAD_landline_fnc_callPluginActivate;
 
 // register call
 [_object, _calledPhoneObject] remoteExec ["GRAD_landline_fnc_callRegister", 2];

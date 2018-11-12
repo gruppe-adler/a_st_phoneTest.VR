@@ -23,6 +23,12 @@ if (_callerPhoneObject isEqualTo _receiverPhoneObject) exitWith {
 
 private _callerNumber = _callerPhoneObject getVariable ["GRAD_LANDLINE_NUMBER_ASSIGNED", "no number"];
 
+[
+    _callerPhoneObject, _receiverPhoneObject,
+    player, objNull
+] call GRAD_landline_fnc_callSaveInfo;
+
+
 
 // if no number is assigned
 if (count _callerNumber isEqualTo 0) exitWith { diag_log "error, no number"; };

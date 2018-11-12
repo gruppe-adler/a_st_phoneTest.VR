@@ -1,4 +1,4 @@
-params ["_phoneObject", "_lineNumber"];
+params ["_phoneObject", "_lineNumber", ["_receiverPhone", objNull]];
 
 player setVariable ['GRAD_landline_isCalling', true];
 
@@ -42,12 +42,19 @@ private _pluginCommand = format[
 systemChat format ["grad-landline-debug: linenumber: %1, encryption: %2", _lineNumber, _encryptionKey];
 diag_log format ["grad-landline-debug: linenumber: %1, encryption: %2", _lineNumber, _encryptionKey];
 
+
+
+
 [{
-	params ["_phoneObject", "_lineNumber"];
+	params ["_phoneObject", "_lineNumber", "_receiverPhone"];
+	// if player is receiver, distance to own phone should be measured
+	if (!isNull _receiverPhone) then {
+		_phoneObject = _receiverPhone;
+	};
 	(_phoneObject distance player > 3)
 },
 {
 	params ["_phoneObject", "_lineNumber"];
 	[_phoneObject, "calling"] call GRAD_landline_fnc_callEnd;
 	systemChat "ending call because too far away";
-}, [_phoneObject,_lineNumber]] call CBA_fnc_waitUntilAndExecute;
+}, [_phoneObject,_lineNumber,_receiverPhone]] call CBA_fnc_waitUntilAndExecute;
