@@ -26,6 +26,7 @@ class GRAD_landline {
         file = grad-landline\functions\client\calls;
 
         class callAccept;
+        class callDeleteInfo;
         class callEnd;
         class callGetInfo;
         class callGetOwner;

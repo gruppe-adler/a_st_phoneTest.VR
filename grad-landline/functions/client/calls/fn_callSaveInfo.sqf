@@ -13,6 +13,6 @@ _phone1 setVariable [
 
 _phone2 setVariable [
     _identifier, 
-    [_phone1, _phone2, _number1, _number2,, _player1, _player2], 
+    [_phone1, _phone2, _number1, _number2, _player1, _player2], 
     true
 ];
