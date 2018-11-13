@@ -17,12 +17,15 @@ _storedData params [
     ["_player2", player]
 ];
 
+[_phone1, _phone2, _player1, _player2] call GRAD_landline_fnc_callSaveInfo;
+
+
 [player, _phone2] call GRAD_landline_fnc_callSetOwner;
 
 [_phone2, "calling"] call GRAD_landline_fnc_callSetStatus;
 
-// activate tfar
+// activate tfar with own phone
 [_phone2, _number1 + _number2] call GRAD_landline_fnc_callPluginActivate;
 
 // register call
-[_object, _calledPhoneObject] remoteExec ["GRAD_landline_fnc_callRegister", 2];
+[_phone1, _phone2] remoteExec ["GRAD_landline_fnc_callRegister", 2];

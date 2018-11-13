@@ -44,13 +44,13 @@ diag_log format ["grad-landline-debug: linenumber: %1, encryption: %2", _lineNum
 
 
 
-
+// its actually important phone object is the phone you are standing next to
 [{
-	params ["_phoneObject", "_lineNumber"];
+	params ["_phoneObject"];
 	(_phoneObject distance player > 3)
 },
 {
-	params ["_phoneObject", "_lineNumber"];
+	params ["_phoneObject"];
 	[_phoneObject, "calling"] call GRAD_landline_fnc_callEnd;
 	systemChat "ending call because too far away";
-}, [_phoneObject,_lineNumber]] call CBA_fnc_waitUntilAndExecute;
+}, [_phoneObject]] call CBA_fnc_waitUntilAndExecute;
