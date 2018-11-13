@@ -27,14 +27,12 @@ class GRAD_landline {
 
         class callAccept;
         class callEnd;
-        class callGetCallerObject;
-        class callGetCurrentPartnerObject;
+        class callGetInfo;
         class callGetOwner;
         class callGetStatus;
         class callPluginActivate;
         class callPluginDeactivate;
-        class callSetCallerObject;
-        class callSetCurrentPartnerObject;
+        class callSaveInfo;
         class callSetOwner;
         class callSetStatus;
         class callStart;

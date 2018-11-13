@@ -65,9 +65,9 @@ _button ctrlAddEventHandler ["ButtonClick", {
         private _receiverNumber = _objReceiver getVariable ["GRAD_LANDLINE_NUMBER_ASSIGNED", "none"];
 
         private _objCaller = player getVariable ["GRAD_landline_objCaller", objNull];
-
+        private _callerNumber = _objCaller getVariable ["GRAD_LANDLINE_NUMBER_ASSIGNED", "no number"];
         
-        [_objCaller, _objReceiver, _receiverNumber] spawn GRAD_landline_fnc_callStart;
+        [_objCaller, _objReceiver, _callerNumber, _receiverNumber] spawn GRAD_landline_fnc_callStart;
 
         // debug
         private _selectionMarker = createMarkerLocal ["mrk_grad_landlinePhoneCaller", position _objCaller];

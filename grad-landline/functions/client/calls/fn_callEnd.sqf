@@ -1,17 +1,18 @@
 params ["_object", "_state"];
 
-// objects and partner
-private _receiverPhoneObject = [] call GRAD_landline_fnc_callGetCurrentPartnerObject;
+// storedData
+private _storedData = [_object] call GRAD_landline_fnc_callGetInfo;
 
-// get other side client
-private _recipient = objNull;
-if (!isNull _receiverPhoneObject) then {
-	_recipient = [_receiverPhoneObject] call GRAD_landline_fnc_callGetOwner;
-};
+_storedData params [
+    ["_phone1", objNull], 
+    ["_phone2", objNull], 
+    ["_number1", "undefined"], 
+    ["_number2", "undefined"], 
+    ["_player1", objNull], 
+    ["_player2", objNull]
+];
 
-// numbers
-private _callerNumber = _object getVariable ["GRAD_LANDLINE_NUMBER_ASSIGNED", "no number"];
-private _receiverNumber = _receiverPhoneObject getVariable ["GRAD_LANDLINE_NUMBER_ASSIGNED", "no number"];
+private _isCaller = player isEqualTo _player1;
 
 
 // execute state stuff
@@ -29,7 +30,7 @@ switch (_state) do {
 		[_object, "GRAD_landline_phoneHangUp"] remoteExec ["say3D", [0,-2] select isDedicated];
 
 		// tfar
-		[_object, _callerNumber] call GRAD_landline_fnc_callPluginDeactivate;
+		[_object, _callerNumber + _receiverNumber] call GRAD_landline_fnc_callPluginDeactivate;
 
 		// delete partner reference
 		[objNull] call GRAD_landline_fnc_callSetCurrentPartnerObject;
@@ -58,7 +59,7 @@ switch (_state) do {
 		[_callerNumber, _receiverNumber] remoteExec ["GRAD_landline_fnc_callUnregister", 2];
 
 		// tfar
-		[_object, _callerNumber] call GRAD_landline_fnc_callPluginDeactivate;
+		[_object, _callerNumber + _receiverNumber] call GRAD_landline_fnc_callPluginDeactivate;
 
 		// delete partner reference
 		[objNull] call GRAD_landline_fnc_callSetCurrentPartnerObject;
@@ -77,7 +78,7 @@ switch (_state) do {
 		[_object] call GRAD_landline_fnc_soundInterrupted;
 
 		// tfar
-		[_object, _callerNumber] call GRAD_landline_fnc_callPluginDeactivate;
+		[_object, _callerNumber + _receiverNumber] call GRAD_landline_fnc_callPluginDeactivate;
 
 		// debug whats happening
 		systemChat "other side hung up";
