@@ -23,4 +23,4 @@ jobs:
     - stage: linting
       name: "sqflint"
       install: pip install sqflint
-      script: tools/lint.sh -d . -C /tmp
+      script: bash tools/lint.sh -d . -C /tmp
