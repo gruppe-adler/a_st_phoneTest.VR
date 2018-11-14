@@ -3,7 +3,7 @@
 #define CT_STRUCTURED_TEXT          13
 #define ST_LEFT                     0x00
 
-#define GRAD_LANDLINE_100H             safeZoneY + safeZoneH
+#define GRAD_LANDLINE_100H             safeZoneY
 #define GRAD_LANDLINE_100W             safeZoneX + safeZoneW
 #define GRAD_COLUMN_COUNT              10
 #define GRAD_COLUMN_W                  GRAD_LANDLINE_100W/GRAD_COLUMN_COUNT
