@@ -61,11 +61,11 @@ switch (_state) do {
 			[_phone1, _phone2] call GRAD_landline_fnc_callDeleteInfo;
 		};
 
-		if (!isNull _player2 && isCaller) then {
+		if (!isNull _player2 && _isCaller) then {
 			[_phone2, "remoteEnd"] remoteExec ["GRAD_landline_fnc_callEnd", _player2];
 		};
 
-		if (!isCaller) then {
+		if (!_isCaller) then {
 			[_phone1, "remoteEnd"] remoteExec ["GRAD_landline_fnc_callEnd", _player1];
 		};
 		
