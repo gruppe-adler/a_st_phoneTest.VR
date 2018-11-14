@@ -1,6 +1,6 @@
 params ["_phone"];
 
-private _identifier = "GRAD_landline_runningCall"];
+private _identifier = "GRAD_landline_runningCall";
 
 private _storedData = _phone getVariable [
     _identifier, 
