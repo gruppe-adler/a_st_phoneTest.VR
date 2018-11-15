@@ -22,6 +22,8 @@ if (_callerPhoneObject isEqualTo _receiverPhoneObject) exitWith {
     systemChat "callStart - wait";
 };
 
+systemChat format ["callStart - saveInfo %1 %2", _callerPhoneObject, _receiverPhoneObject];
+
 [
     _callerPhoneObject, _receiverPhoneObject,
     player, objNull
@@ -39,11 +41,11 @@ if ([_receiverPhoneObject, "idle"] call GRAD_landline_fnc_callGetStatus) then {
     [_receiverPhoneObject] call GRAD_landline_fnc_soundWaiting;
 
     systemChat format ["callStart - calling %1 from %2", _receiverNumber, _callerNumber];
-    private _storedData = [_object] call GRAD_landline_fnc_callGetInfo;
+    private _storedData = [_callerPhoneObject] call GRAD_landline_fnc_callGetInfo;
 
     _storedData params [
         ["_phone1", objNull], 
-        ["_phone2", _object], 
+        ["_phone2", _callerPhoneObject], 
         ["_number1", "undefined"], 
         ["_number2", "undefined"], 
         ["_player1", objNull], 

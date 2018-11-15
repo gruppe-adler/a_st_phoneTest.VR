@@ -40,7 +40,7 @@ _object addAction [
     "End Call",
     {
         params ["_target", "_caller", "_actionId", "_arguments"];
-        systemChat str [_target, _caller, _actionId, _arguments];
+        diag_log ("end call: " + str [_target, _caller, _actionId, _arguments]);
 
             if ([_target, 'calling'] call GRAD_landline_fnc_callGetStatus) then {
                 [_target, 'calling'] call GRAD_landline_fnc_callEnd;
