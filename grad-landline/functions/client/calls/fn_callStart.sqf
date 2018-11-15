@@ -1,8 +1,10 @@
-params ["_callerPhoneObject", "_receiverPhoneObject", "_callerNumber", "_receiverNumber"];
+params ["_callerPhoneObject", "_receiverPhoneObject"];
 
 // if no number is assigned
 // if (count _callerNumber isEqualTo 0) exitWith { diag_log "error, no number"; };
 
+private _callerNumber = _callerPhoneObject getVariable ["GRAD_LANDLINE_NUMBER_ASSIGNED", "none"];
+private _receiverNumber = _receiverPhoneObject getVariable ["GRAD_LANDLINE_NUMBER_ASSIGNED", "none"];
 
 private _dialing = [_receiverNumber] spawn GRAD_landline_fnc_rotaryDialNumber;
 
@@ -36,7 +38,18 @@ if ([_receiverPhoneObject, "idle"] call GRAD_landline_fnc_callGetStatus) then {
     waitUntil { ([_receiverPhoneObject, "ringing"] call GRAD_landline_fnc_callGetStatus) };
     [_receiverPhoneObject] call GRAD_landline_fnc_soundWaiting;
 
-    systemChat "callStart - calling";
+    systemChat format ["callStart - calling %1 from %2", _receiverNumber, _callerNumber];
+    private _storedData = [_object] call GRAD_landline_fnc_callGetInfo;
+
+    _storedData params [
+        ["_phone1", objNull], 
+        ["_phone2", _object], 
+        ["_number1", "undefined"], 
+        ["_number2", "undefined"], 
+        ["_player1", objNull], 
+        ["_player2", player]
+    ];
+    systemChat format ["callStart - calling %1 from %2", _number2, _number1];
 
     // activate tfar stuff
     [_callerPhoneObject, _callerNumber + _receiverNumber] call GRAD_landline_fnc_callPluginActivate;

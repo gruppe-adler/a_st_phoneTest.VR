@@ -24,6 +24,8 @@ _storedData params [
 
 [_phone2, "calling"] call GRAD_landline_fnc_callSetStatus;
 
+systemChat format ["callAccept - %1 received call from %2", _number2, _number1];
+
 // activate tfar with own phone
 [_phone2, _number1 + _number2] call GRAD_landline_fnc_callPluginActivate;
 
