@@ -41,20 +41,3 @@ private _pluginCommand = format[
 
 systemChat format ["grad-landline-debug: linenumber: %1, encryption: %2", _lineNumber, _encryptionKey];
 diag_log format ["grad-landline-debug: linenumber: %1, encryption: %2", _lineNumber, _encryptionKey];
-
-
-
-// its actually important phone object is the phone you are standing next to
-[{
-	params ["_phoneObject"];
-	(_phoneObject distance player > 3) || 
-	[player, _phoneObject] call GRAD_landline_fnc_conditionEnd
-},
-{
-	params ["_phoneObject"];
-	if ([player, _phoneObject] call GRAD_landline_fnc_conditionEnd) then {
-		[_phoneObject, _phoneObject getVariable ["GRAD_landline_phoneStatus", "none"]] call GRAD_landline_fnc_callEnd;
-		systemChat "ending call because too far away";
-	};
-}, [_phoneObject]] call CBA_fnc_waitUntilAndExecute;
-

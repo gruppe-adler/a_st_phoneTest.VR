@@ -10,12 +10,15 @@ private _storedData = [_object] call GRAD_landline_fnc_callGetInfo;
 
 _storedData params [
     ["_phone1", objNull], 
-    ["_phone2", _object], 
+    ["_phone2", objNull], 
     ["_number1", "undefined"], 
     ["_number2", "undefined"], 
     ["_player1", objNull], 
-    ["_player2", player]
+    ["_player2", objNull]
 ];
+
+_phone2 = _object;
+_player2 = player;
 
 [_phone1, _phone2, _player1, _player2] call GRAD_landline_fnc_callSaveInfo;
 
