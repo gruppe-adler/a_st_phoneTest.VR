@@ -3,12 +3,12 @@
 #define CT_STRUCTURED_TEXT          13
 #define ST_LEFT                     0x00
 
-#define GRAD_LANDLINE_100H             safeZoneY + safeZoneH
+#define GRAD_LANDLINE_100H             safeZoneH
 #define GRAD_LANDLINE_100W             safeZoneX + safeZoneW
 #define GRAD_COLUMN_COUNT              10
 #define GRAD_COLUMN_W                  GRAD_LANDLINE_100W/GRAD_COLUMN_COUNT
 #define GRAD_ROW_COUNT                 20
-#define GRAD_ROW_H                     GRAD_LANDLINE_100H/GRAD_ROW_COUNT
+#define GRAD_ROW_H                     (safeZoneY + GRAD_LANDLINE_100H)/GRAD_ROW_COUNT
 
 #define GRAD_LANDLINE_PHONEBOOK_X      GRAD_COLUMN_W // single column padding
 #define GRAD_LANDLINE_PHONEBOOK_Y      GRAD_ROW_H*2
@@ -63,7 +63,7 @@ class grad_landline_rscPhoneBook {
                 x = GRAD_LANDLINE_PHONEBOOK_X;
                 y = GRAD_LANDLINE_PHONEBOOK_H + GRAD_LANDLINE_PHONEBOOK_Y;
                 w = GRAD_LANDLINE_100W - (GRAD_COLUMN_W*2);
-                h = GRAD_ROW_H*4;
+                h = GRAD_ROW_H*2;
             };
     };
 };

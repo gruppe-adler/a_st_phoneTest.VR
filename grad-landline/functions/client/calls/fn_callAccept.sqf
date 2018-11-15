@@ -1,17 +1,36 @@
+/*
+    
+    callAccept is always executed by player2
+
+*/
+
 params ["_object"];
 
-[player, _object] call GRAD_landline_fnc_callSetOwner;
-private _callerPhoneObject = [_object] call GRAD_landline_fnc_callGetCallerObject;
+private _storedData = [_object] call GRAD_landline_fnc_callGetInfo;
 
-[_object, "calling"] call GRAD_landline_fnc_callSetStatus;
+_storedData params [
+    ["_phone1", objNull], 
+    ["_phone2", objNull], 
+    ["_number1", "undefined"], 
+    ["_number2", "undefined"], 
+    ["_player1", objNull], 
+    ["_player2", objNull]
+];
+
+_phone2 = _object;
+_player2 = player;
+
+[_phone1, _phone2, _player1, _player2] call GRAD_landline_fnc_callSaveInfo;
 
 
-private _receiverNumber = _object getVariable ["GRAD_LANDLINE_NUMBER_ASSIGNED", "no number"];
-private _callerNumber = _callerPhoneObject getVariable ["GRAD_LANDLINE_NUMBER_ASSIGNED", "no number"];
+[player, _phone2] call GRAD_landline_fnc_callSetOwner;
 
+[_phone2, "calling"] call GRAD_landline_fnc_callSetStatus;
 
-// activate tfar
-[_callerPhoneObject, _callerNumber] call GRAD_landline_fnc_callPluginActivate;
+systemChat format ["callAccept - %1 received call from %2", _number2, _number1];
+
+// activate tfar with own phone
+[_phone2, _number1 + _number2] call GRAD_landline_fnc_callPluginActivate;
 
 // register call
-[_callerNumber, _receiverNumber] remoteExec ["GRAD_landline_fnc_callRegister", 2];
+[_phone1, _phone2] remoteExec ["GRAD_landline_fnc_callRegister", 2];
