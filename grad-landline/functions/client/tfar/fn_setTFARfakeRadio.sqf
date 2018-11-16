@@ -5,7 +5,8 @@ params ["_phoneObject", "_frequency", "_encryptionKey", "_status"];
 
 _frequencies = [];
 
-for "_i" from 0 to TFAR_MAX_LR_CHANNELS step 1 do {
+// hardcode 9 channels
+for "_i" from 0 to 9 step 1 do {
         _frequencies set [_i, _frequency];
 };
 
