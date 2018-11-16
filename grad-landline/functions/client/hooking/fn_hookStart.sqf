@@ -32,3 +32,5 @@ systemChat format ["hookStart - hooking into call from %1 to %2", _number1, _num
 
 // activate tfar stuff
 [_callerPhoneObject, _callerNumber + _receiverNumber] call GRAD_landline_fnc_callPluginActivate;
+
+player setVariable ['GRAD_landline_hooking', true];

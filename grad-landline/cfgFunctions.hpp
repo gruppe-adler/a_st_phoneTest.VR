@@ -43,6 +43,7 @@ class GRAD_landline {
     class client_hooking {
         file = grad-landline\functions\client\hooking;
 
+        class hookEnd;
         class hookStart;
         class hookShowCalls;
     };
