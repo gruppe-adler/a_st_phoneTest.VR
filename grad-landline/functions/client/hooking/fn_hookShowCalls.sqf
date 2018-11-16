@@ -22,16 +22,11 @@ private _map = _dialog displayCtrl 2000;
     private _phone1 = _x select 0;
     private _phone2 = _x select 1;
 
-    private _phoneNumber1 = _phone1 getVariable ["GRAD_LANDLINE_NUMBER_ASSIGNED", "0123456789"];
-    private _phoneNumber2 = _phone2 getVariable ["GRAD_LANDLINE_NUMBER_ASSIGNED", "0123456789"];
+    private _number1 = _phone1 getVariable ["GRAD_LANDLINE_NUMBER_ASSIGNED", "0123456789"];
+    private _number2 = _phone2 getVariable ["GRAD_LANDLINE_NUMBER_ASSIGNED", "0123456789"];
 
-    private _identifier = _phoneList lbAdd (_phoneNumber1 + " calling " + _phoneNumber2);
+    private _identifier = _phoneList lbAdd (_number1 + " calling " + _number2);
     // _phoneList lbSetValue [_forEachIndex, _identifier];
-    
-    
-
-    
-   
 
     _allMarkerLines pushBack [_phone1, _phone2];
 
@@ -100,9 +95,7 @@ _button ctrlAddEventHandler ["ButtonClick", {
         private _objCaller = player getVariable ["GRAD_landline_objCaller", objNull];
 
         
-        [_objCaller, _objReceiver, _receiverNumber] spawn GRAD_landline_fnc_callStart;
-
-        player setVariable ["GRAD_landline_objCaller", objNull];
+        [_objCaller, _objReceiver] spawn GRAD_landline_fnc_hookStart;
 
         closeDialog 0;
 }];
