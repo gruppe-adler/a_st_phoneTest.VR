@@ -2,7 +2,7 @@ params ["_phoneObject", "_lineNumber"];
 
 player setVariable ['GRAD_landline_isCalling', false];
 
-private _encryptionKey = "grad_landline";
+private _encryptionKey = "tf_west_radio_code";
 
 [_phoneObject, _lineNumber, _encryptionKey, false] call GRAD_landline_fnc_setTFARfakeRadio;
 
