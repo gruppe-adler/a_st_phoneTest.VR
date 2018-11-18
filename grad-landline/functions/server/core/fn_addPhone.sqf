@@ -13,7 +13,12 @@ params ["_object", ["_number", "none"]];
 if (!isServer) exitWith {};
 
 
+private _id = missionNamespace getVariable ["GRAD_landline_phoneCount", 0];
+_id = _id + 1;
+missionNamespace setVariable ["GRAD_landline_phoneCount", _id, true];
+
 _object setVariable ["GRAD_landline_isPhone", true, true];
+_object setVariable ["GRAD_landline_phoneID", _id, true];
 
 
 [_object, _number] call GRAD_landline_fnc_assignPhoneNumber;

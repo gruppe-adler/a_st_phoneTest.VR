@@ -26,18 +26,21 @@ private _hintText = format[
  tf_mr3000 fake classname // not sure if important
 
 */
+private _id = _phoneObject getVariable ["GRAD_landline_phoneID", 0];
+private _classname = "tf_fadak_" + str _id;
+
 private _pluginCommand = format[
 								"TANGENT_LR	PRESSED	%1%2	%3	%4	%5",
 								_lineNumber,
 								_encryptionKey,
 								100000,
 								"phone",
-								"tf_fadak"
+								_classname
 							];
 
 [_hintText, _pluginCommand, [0,-1] select TFAR_showTransmittingHint] call TFAR_fnc_processTangent;
 
-TF_tangent_lr_pressed = true;
+TF_tangent_sw_pressed = true;
 
-systemChat format ["grad-landline-debug: linenumber: %1, encryption: %2, classname: %3", _lineNumber, _encryptionKey];
-diag_log format ["grad-landline-debug: linenumber: %1, encryption: %2, classname: %3", _lineNumber, _encryptionKey];
+systemChat format ["grad-landline-debug: linenumber: %1, encryption: %2, classname: %3", _lineNumber, _encryptionKey, _classname];
+diag_log format ["grad-landline-debug: linenumber: %1, encryption: %2, classname: %3", _lineNumber, _encryptionKey, _classname];

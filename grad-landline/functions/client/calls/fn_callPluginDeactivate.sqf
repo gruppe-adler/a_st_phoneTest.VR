@@ -26,7 +26,7 @@ private _pluginCommand = format[
 
 [_hintText,_pluginCommand, [0,nil] select TFAR_showTransmittingHint] call TFAR_fnc_processTangent;
 
-TF_tangent_lr_pressed = false;
+TF_tangent_sw_pressed = false;
 
 systemChat format ["grad-landline-debug: linenumber: %1, encryption: %2", _lineNumber, _encryptionKey];
 diag_log format ["grad-landline-debug: linenumber: %1, encryption: %2", _lineNumber, _encryptionKey];
