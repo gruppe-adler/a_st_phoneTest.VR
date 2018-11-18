@@ -29,7 +29,7 @@ ARRAY: Settings [
 // 
 // private _lr_settings = [0, TFAR_default_radioVolume, [], 0, nil, -1, 0, nil, false, true];
 // channel, volume, frequencies, STEREO, encryption, additional active channel, additional active stereo, empty, speaker mode, turned on
-private _settings = [0, TFAR_default_radioVolume, _frequencies, 2, _encryptionKey, -1, 0, nil, false, true];
+private _settings = [0, TFAR_default_radioVolume, _frequencies, 0, _encryptionKey, -1, 0, nil, false, true];
 private _settingsID = "radio_settings";
 
 _phoneObject setVariable [_settingsID, _settings, true];

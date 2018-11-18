@@ -17,6 +17,7 @@ if (_callerPhoneObject isEqualTo _receiverPhoneObject) exitWith {
     hint "cant call yourself, dumbass";
 
     [_callerPhoneObject, "busy"] call GRAD_landline_fnc_callSetStatus;
+    player setVariable ['GRAD_landline_isCalling', true];
     [_callerPhoneObject] call GRAD_landline_fnc_soundBusy;
 
     systemChat "callStart - busy";

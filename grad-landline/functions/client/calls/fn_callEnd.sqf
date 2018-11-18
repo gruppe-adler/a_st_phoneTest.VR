@@ -50,7 +50,7 @@ switch (_state) do {
 		[_object, "idle"] call GRAD_landline_fnc_callSetStatus;
 
 		
-		[_phone1, "GRAD_landline_phoneHangUp"] remoteExec ["say3D", [0,-2] select isDedicated];
+		[_object, "GRAD_landline_phoneHangUp"] remoteExec ["say3D", [0,-2] select isDedicated];
 
 		// debug whats happening
 		systemChat "hanging up from busy";
