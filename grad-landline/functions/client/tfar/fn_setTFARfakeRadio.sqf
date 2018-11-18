@@ -2,7 +2,6 @@ params ["_phoneObject", "_frequency", "_encryptionKey", "_status"];
 
 
 
-private _frequency = "50";
 _frequencies = [];
 
 // hardcode 9 channels

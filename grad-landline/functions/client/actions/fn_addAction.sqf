@@ -42,10 +42,17 @@ _object addAction [
         params ["_target", "_caller", "_actionId", "_arguments"];
         diag_log ("end call: " + str [_target, _caller, _actionId, _arguments]);
 
-            if ([_target, 'calling'] call GRAD_landline_fnc_callGetStatus) then {
+
+            if ([_target, 'calling'] call GRAD_landline_fnc_callGetStatus) exitWith {
                 [_target, 'calling'] call GRAD_landline_fnc_callEnd;
-            } else {
+            };
+
+            if ([_target, 'waiting'] call GRAD_landline_fnc_callGetStatus) exitWith {
                 [_target, 'waiting'] call GRAD_landline_fnc_callEnd;
+            };
+
+            if ([_target, 'busy'] call GRAD_landline_fnc_callGetStatus) exitWith {
+                [_target, 'busy'] call GRAD_landline_fnc_callEnd;
             };
     },
     [],11,true,true,"",

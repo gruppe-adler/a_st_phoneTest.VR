@@ -16,10 +16,10 @@ waitUntil { scriptDone _dialing };
 if (_callerPhoneObject isEqualTo _receiverPhoneObject) exitWith {
     hint "cant call yourself, dumbass";
 
-    [_callerPhoneObject, "waiting"] call GRAD_landline_fnc_callSetStatus;
-    [_callerPhoneObject] call GRAD_landline_fnc_soundWaiting;
+    [_callerPhoneObject, "busy"] call GRAD_landline_fnc_callSetStatus;
+    [_callerPhoneObject] call GRAD_landline_fnc_soundBusy;
 
-    systemChat "callStart - wait";
+    systemChat "callStart - busy";
 };
 
 systemChat format ["callStart - saveInfo %1 %2", _callerPhoneObject, _receiverPhoneObject];
@@ -59,7 +59,7 @@ if ([_receiverPhoneObject, "idle"] call GRAD_landline_fnc_callGetStatus) then {
     [_callerPhoneObject, "busy"] call GRAD_landline_fnc_callSetStatus;
     [_receiverPhoneObject] call GRAD_landline_fnc_soundBusy;
 
-    systemChat "callStart - wait";
+    systemChat "callStart - busy";
 };
 
 
