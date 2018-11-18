@@ -26,8 +26,6 @@ private _hintText = format[
  tf_mr3000 fake classname // not sure if important
 
 */
-private _className = selectRandom ["tf_mr3000", "tf_mr6000l", "tf_mr3000_bwmod_tropen", "tf_rt1523g_black"];
-
 private _pluginCommand = format[
 								"TANGENT_LR	PRESSED	%1%2	%3	%4	%5",
 								_lineNumber,
@@ -41,5 +39,5 @@ private _pluginCommand = format[
 
 TF_tangent_lr_pressed = true;
 
-systemChat format ["grad-landline-debug: linenumber: %1, encryption: %2, classname: %3", _lineNumber, _encryptionKey, _className];
-diag_log format ["grad-landline-debug: linenumber: %1, encryption: %2, classname: %3", _lineNumber, _encryptionKey, _className];
+systemChat format ["grad-landline-debug: linenumber: %1, encryption: %2, classname: %3", _lineNumber, _encryptionKey];
+diag_log format ["grad-landline-debug: linenumber: %1, encryption: %2, classname: %3", _lineNumber, _encryptionKey];
