@@ -34,8 +34,8 @@ switch (_state) do {
 		};
 
 		// tfar
-// todo: careful to set if busy state
-		[_object, _callerNumber + _receiverNumber] call GRAD_landline_fnc_callPluginDeactivate;
+		// todo: careful to set if busy state
+		[_object, _number1 + _number2] call GRAD_landline_fnc_callPluginDeactivate;
 
 		// delete partner reference
 		[_phone1, _phone2] call GRAD_landline_fnc_callDeleteInfo;
