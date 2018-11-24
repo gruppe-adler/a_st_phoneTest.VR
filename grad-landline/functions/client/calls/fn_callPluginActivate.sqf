@@ -30,12 +30,12 @@ private _id = _phoneObject getVariable ["GRAD_landline_phoneID", 0];
 private _classname = "tf_fadak_" + str _id;
 
 private _pluginCommand = format[
-								"TANGENT_LR	PRESSED	%1%2	%3	%4	%5",
-								_lineNumber,
-								_encryptionKey,
-								100000,
-								"phone",
-								_classname
+                                "TANGENT	PRESSED	%1%2	%3	%4	%5",
+                                _lineNumber,
+                                _encryptionKey,
+                                100000,
+                                "phone",
+                                _classname
 							];
 
 [_hintText, _pluginCommand, [0,-1] select TFAR_showTransmittingHint] call TFAR_fnc_processTangent;
