@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=38;
+		nextID=40;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={2926.8457,12.536002,3661.7634};
-		dir[]={0.93635237,-0.35013062,-0.028825602};
-		up[]={0.35006297,0.93665498,-0.010778487};
-		aside[]={-0.030775176,7.2153489e-007,-0.99962026};
+		pos[]={2946.4114,12.536002,3662.063};
+		dir[]={0.86916167,-0.3734636,0.32443988};
+		up[]={0.34997201,0.92759752,0.13063528};
+		aside[]={0.34974068,7.8330049e-007,-0.93694705};
 	};
 };
 binarizationWanted=0;
@@ -29,6 +29,7 @@ addons[]=
 	"A3_Structures_F_EPB_Civ_Accessories",
 	"A3_Characters_F",
 	"ace_nouniformrestrictions",
+	"A3_Weapons_F",
 	"A3_Characters_F_Orange",
 	"cba_xeh"
 };
@@ -36,7 +37,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=5;
+		items=6;
 		class Item0
 		{
 			className="A3_Structures_F_Argo";
@@ -66,6 +67,13 @@ class AddonsMetaData
 			url="http://ace3mod.com/";
 		};
 		class Item4
+		{
+			className="A3_Weapons_F";
+			name="Arma 3 Alpha - Weapons and Accessories";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item5
 		{
 			className="A3_Characters_F_Orange";
 			name="Arma 3 Orange - Characters and Clothing";
@@ -427,6 +435,23 @@ class Mission
 					{
 						isPlayer=1;
 						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_C_HunterBody_grn";
+								isBackpack=0;
+							};
+							class backpack
+							{
+								typeName="TFAR_anarc164";
+								isBackpack=1;
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							headgear="H_Booniehat_grn";
+						};
 					};
 					id=3;
 					type="C_man_hunter_1_F";

@@ -17,7 +17,7 @@ private _hintText = format[
 						];
 
 private _pluginCommand = format[
-                                "TANGENT_LR	RELEASED	%1%2	%3	%4",
+                                "TANGENT_LR RELEASED    %1%2    %3  %4",
                                 _lineNumber,
                                 _encryptionKey,
                                 100000,

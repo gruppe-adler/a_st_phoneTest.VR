@@ -30,7 +30,7 @@ private _id = _phoneObject getVariable ["GRAD_landline_phoneID", 0];
 private _classname = "tf_fadak_" + str _id;
 
 private _pluginCommand = format[
-                                "TANGENT	PRESSED	%1%2	%3	%4	%5",
+                                "TANGENT_LR	PRESSED	%1%2	%3	%4	%5",
                                 _lineNumber,
                                 _encryptionKey,
                                 100000,

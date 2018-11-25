@@ -35,7 +35,13 @@ private _settingsID = "radio_settings";
 _phoneObject setVariable [_settingsID, _settings, true];
 TFAR_OverrideActiveLRRadio = if (_status) then { [_phoneObject, _settingsID] } else { nil };
 
+
 if (!isNil "TFAR_OverrideActiveLRRadio") then {
+
+    missionNamespace setVariable ["TF_lr_active_radio", TFAR_OverrideActiveLRRadio select 0];
+    TFAR_OverrideActiveLRRadio call TFAR_fnc_setActiveLrRadio;
+    
+
     systemChat format ["grad-landline-debug: TFAR_OverrideActiveLRRadio: %1, settings are %2", TFAR_OverrideActiveLRRadio, _settings];
     diag_log format ["grad-landline-debug: TFAR_OverrideActiveLRRadio: %1, settings are %2", TFAR_OverrideActiveLRRadio, _settings];
 };
