@@ -8,7 +8,7 @@ private _receiverNumber = _receiverPhoneObject getVariable ["GRAD_LANDLINE_NUMBE
 
 private _dialing = [_receiverNumber] spawn GRAD_landline_fnc_rotaryDialNumber;
 
-
+player setVariable ['GRAD_landline_isCalling', true];
 
 [{
     params ["_dialing"];
@@ -23,7 +23,7 @@ private _dialing = [_receiverNumber] spawn GRAD_landline_fnc_rotaryDialNumber;
             hint "cant call yourself, dumbass";
 
             [_callerPhoneObject, "busy"] call GRAD_landline_fnc_callSetStatus;
-            player setVariable ['GRAD_landline_isCalling', true];
+            
             [_callerPhoneObject] call GRAD_landline_fnc_soundBusy;
 
             systemChat "callStart - busy";
@@ -46,11 +46,10 @@ private _dialing = [_receiverNumber] spawn GRAD_landline_fnc_rotaryDialNumber;
             [_receiverPhoneObject] remoteExec ["GRAD_landline_fnc_callRinging", 2];
 
             [_callerPhoneObject] call GRAD_landline_fnc_callWaiting;
-            [_callerPhoneObject] call GRAD_landline_fnc_soundWaiting;
 
             [{
                     params ["_callerPhoneObject", "_receiverPhoneObject", "_callerNumber", "_receiverNumber"];
-                    ([_receiverPhoneObject, "ringing"] call GRAD_landline_fnc_callGetStatus)
+                    ([_receiverPhoneObject, "calling"] call GRAD_landline_fnc_callGetStatus)
             }, {
 
                     params ["_callerPhoneObject", "_receiverPhoneObject", "_callerNumber", "_receiverNumber"];

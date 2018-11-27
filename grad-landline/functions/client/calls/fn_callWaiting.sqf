@@ -1,5 +1,8 @@
 params ["_callerPhoneObject"];
 
+
+[_callerPhoneObject] call GRAD_landline_fnc_soundWaiting;
+
 // its actually important phone object is the phone you are standing next to
 [{
     params ["_callerPhoneObject"];
