@@ -37,7 +37,10 @@ TFAR_OverrideActiveLRRadio = if (_status) then { [_phoneObject, _settingsID] } e
 
 
 if (!isNil "TFAR_OverrideActiveLRRadio") then {
-
+    if (isNil "TF_lr_active_radio") then {
+        missionNameSpace setVariable ["TF_lr_active_radio", TFAR_OverrideActiveLRRadio];
+        diag_log format ["setting TF_lr_active_radio manually, as not defined before.."];
+    };
     TFAR_OverrideActiveLRRadio call TFAR_fnc_setActiveLrRadio;
     
 

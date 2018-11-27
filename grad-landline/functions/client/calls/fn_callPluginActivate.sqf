@@ -29,7 +29,7 @@ NO ENCRYPTION NOW
 
 */
 private _id = _phoneObject getVariable ["GRAD_landline_phoneID", 0];
-private _classname = "tf_fadak_" + str _id;
+private _classname = "grad_landline_" + str _id; // could be anything, as long as its not identical to other participants
 
 private _pluginCommand = format[
                                 "TANGENT_LR	PRESSED	%1%2	%3	%4	%5",
@@ -42,7 +42,7 @@ private _pluginCommand = format[
 
 [_hintText, _pluginCommand, [0,-1] select TFAR_showTransmittingHint] call TFAR_fnc_processTangent;
 
-TF_tangent_sw_pressed = true;
+TF_tangent_lr_pressed = true; // necessary?
 
 systemChat format ["grad-landline-debug: linenumber: %1, encryption: %2, classname: %3", _lineNumber, _encryptionKey, _classname];
 diag_log format ["grad-landline-debug: linenumber: %1, encryption: %2, classname: %3", _lineNumber, _encryptionKey, _classname];
