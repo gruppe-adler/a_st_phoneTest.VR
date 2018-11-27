@@ -45,6 +45,8 @@ private _dialing = [_receiverNumber] spawn GRAD_landline_fnc_rotaryDialNumber;
             // let server handle receiver status
             [_receiverPhoneObject] remoteExec ["GRAD_landline_fnc_callRinging", 2];
 
+            [_callerPhoneObject] call GRAD_landline_fnc_callWaiting;
+
             [{
                     params ["_callerPhoneObject", "_receiverPhoneObject", "_callerNumber", "_receiverNumber"];
                     ([_receiverPhoneObject, "ringing"] call GRAD_landline_fnc_callGetStatus)
@@ -74,21 +76,5 @@ private _dialing = [_receiverNumber] spawn GRAD_landline_fnc_rotaryDialNumber;
 
             systemChat "callStart - busy";
         };
-
-
-        // its actually important phone object is the phone you are standing next to
-        [{
-            params ["_callerPhoneObject"];
-            // (_phoneObject distance player > 3) || 
-            [player, _callerPhoneObject] call GRAD_landline_fnc_conditionEnd
-        },
-        {
-            params ["_callerPhoneObject"];
-            if (!([player, _callerPhoneObject] call GRAD_landline_fnc_conditionEnd)) then {
-                [_callerPhoneObject, _callerPhoneObject getVariable ["GRAD_landline_phoneStatus", "none"]] call GRAD_landline_fnc_callEnd;
-                systemChat "ending call because too far away";
-            };
-        }, [_callerPhoneObject]] call CBA_fnc_waitUntilAndExecute;
-
 
 }, [_dialing, _callerPhoneObject, _receiverPhoneObject, _callerNumber, _receiverNumber]] call CBA_fnc_waitUntilAndExecute;

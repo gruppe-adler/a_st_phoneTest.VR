@@ -2,7 +2,7 @@ params ["_phoneObject", "_lineNumber"];
 
 player setVariable ['GRAD_landline_isCalling', true];
 
-private _encryptionKey = "tf_west_radio_code";
+private _encryptionKey = ""; // must be nothing
 
 [_phoneObject, _lineNumber, _encryptionKey, true] call GRAD_landline_fnc_setTFARfakeRadio;
 
@@ -24,6 +24,8 @@ private _hintText = format[
  100000 - range
  phone - tf_subtype
  tf_mr3000 fake classname // not sure if important
+
+NO ENCRYPTION NOW
 
 */
 private _id = _phoneObject getVariable ["GRAD_landline_phoneID", 0];

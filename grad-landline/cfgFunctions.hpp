@@ -37,6 +37,7 @@ class GRAD_landline {
         class callSetOwner;
         class callSetStatus;
         class callStart;
+        class callWaiting;
 
     };
 
