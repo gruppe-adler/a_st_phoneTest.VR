@@ -40,12 +40,13 @@ private _dialing = [_receiverNumber] spawn GRAD_landline_fnc_rotaryDialNumber;
         // go to calling, if receiver can receive
         if ([_receiverPhoneObject, "idle"] call GRAD_landline_fnc_callGetStatus) then {
             // self assign status
-            [_callerPhoneObject, "calling"] call GRAD_landline_fnc_callSetStatus;
+            [_callerPhoneObject, "waiting"] call GRAD_landline_fnc_callSetStatus;
 
             // let server handle receiver status
             [_receiverPhoneObject] remoteExec ["GRAD_landline_fnc_callRinging", 2];
 
             [_callerPhoneObject] call GRAD_landline_fnc_callWaiting;
+            [_callerPhoneObject] call GRAD_landline_fnc_soundWaiting;
 
             [{
                     params ["_callerPhoneObject", "_receiverPhoneObject", "_callerNumber", "_receiverNumber"];
@@ -53,7 +54,7 @@ private _dialing = [_receiverNumber] spawn GRAD_landline_fnc_rotaryDialNumber;
             }, {
 
                     params ["_callerPhoneObject", "_receiverPhoneObject", "_callerNumber", "_receiverNumber"];
-                    systemChat format ["callStart - calling %1 from %2", _receiverNumber, _callerNumber];
+                    systemChat format ["callStart - waiting %1 from %2", _receiverNumber, _callerNumber];
                     private _storedData = [_callerPhoneObject] call GRAD_landline_fnc_callGetInfo;
 
                     _storedData params [
@@ -64,7 +65,7 @@ private _dialing = [_receiverNumber] spawn GRAD_landline_fnc_rotaryDialNumber;
                         ["_player1", objNull], 
                         ["_player2", player]
                     ];
-                    systemChat format ["callStart - calling %1 from %2", _number2, _number1];
+                    systemChat format ["callStart - waiting %1 from %2", _number2, _number1];
 
                     // activate tfar stuff
                     [_callerPhoneObject, _callerNumber + _receiverNumber] call GRAD_landline_fnc_callPluginActivate;

@@ -4,7 +4,7 @@ params ["_callerPhoneObject"];
     params ["_args", "_handle"];
     _args params ["_callerPhoneObject"];
 
-    if (!([_callerPhoneObject, "ringing"] call GRAD_landline_fnc_callGetStatus) ||
+    if (!([_callerPhoneObject, "waiting"] call GRAD_landline_fnc_callGetStatus) ||
         !(player getVariable ['GRAD_landline_isCalling', false])) exitWith { 
         [_handle] call CBA_fnc_removePerFrameHandler; 
     };

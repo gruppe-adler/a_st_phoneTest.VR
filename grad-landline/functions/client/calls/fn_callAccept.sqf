@@ -26,6 +26,7 @@ _player2 = player;
 [player, _phone2] call GRAD_landline_fnc_callSetOwner;
 
 [_phone2, "calling"] call GRAD_landline_fnc_callSetStatus;
+[_phone1, "calling"] call GRAD_landline_fnc_callSetStatus;
 
 systemChat format ["callAccept - %1 received call from %2", _number2, _number1];
 
