@@ -75,11 +75,12 @@ switch (_state) do {
 			[_phone1, _phone2] call GRAD_landline_fnc_callDeleteInfo;
 		};
 
+		// if other side was called and other still exists
 		if (!isNull _player2 && _isCaller) then {
 			[_phone2, "remoteEnd"] remoteExec ["GRAD_landline_fnc_callEnd", _player2];
 		};
-
-		if (!_isCaller) then {
+		// if this side was called and other still exists
+		if (!isNull _player1 && !_isCaller) then {
 			[_phone1, "remoteEnd"] remoteExec ["GRAD_landline_fnc_callEnd", _player1];
 		};
 		
@@ -113,6 +114,19 @@ switch (_state) do {
 
 		// debug whats happening
 		systemChat "other side hung up";
+		player setVariable ['GRAD_landline_isCalling', false];
+	};
+
+
+	case "ending": {
+		// set self to idle state
+		[_object, "idle"] call GRAD_landline_fnc_callSetStatus;
+
+		// play sound
+		[_object, "GRAD_landline_phoneHangUp"] remoteExec ["say3D", [0,-2] select isDedicated];
+		
+		// debug whats happening
+		systemChat "hanging up from ending";
 		player setVariable ['GRAD_landline_isCalling', false];
 	};
 	

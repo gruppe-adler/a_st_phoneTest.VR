@@ -1,6 +1,6 @@
 params ["_phoneObject", "_lineNumber"];
 
-private _encryptionKey = "";
+private _encryptionKey = ""; // must be nothing
 
 [_phoneObject, _lineNumber, _encryptionKey, false] call GRAD_landline_fnc_setTFARfakeRadio;
 

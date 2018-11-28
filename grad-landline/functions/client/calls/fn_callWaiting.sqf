@@ -12,7 +12,7 @@ params ["_callerPhoneObject"];
 {
     params ["_callerPhoneObject"];
     if (!([player, _callerPhoneObject] call GRAD_landline_fnc_conditionEnd)) then {
-        [_callerPhoneObject, _callerPhoneObject getVariable ["GRAD_landline_phoneStatus", "none"]] call GRAD_landline_fnc_callEnd;
+        [_callerPhoneObject, _callerPhoneObject getVariable ["GRAD_landline_phoneStatus", "idle"]] call GRAD_landline_fnc_callEnd;
         systemChat "ending call because too far away";
     };
 }, [_callerPhoneObject]] call CBA_fnc_waitUntilAndExecute;

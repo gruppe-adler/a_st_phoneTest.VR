@@ -1,14 +1,5 @@
 params ["_phoneObject", "_frequency", "_encryptionKey", "_status"];
 
-
-
-_frequencies = [];
-
-// hardcode 9 channels
-for "_i" from 0 to 9 step 1 do {
-        _frequencies set [_i, _frequency];
-};
-
 //  private _lr_settings = [0, TFAR_default_radioVolume, [], 0, nil, -1, 0, nil, false, true];
 /*
 ARRAY: Settings [
@@ -29,14 +20,21 @@ ARRAY: Settings [
 // 
 // private _lr_settings = [0, TFAR_default_radioVolume, [], 0, nil, -1, 0, nil, false, true];
 // channel, volume, frequencies, STEREO, encryption, additional active channel, additional active stereo, empty, speaker mode, turned on
-private _settings = [0, TFAR_default_radioVolume, _frequencies, 0, _encryptionKey, -1, 0, nil, false, true];
-private _settingsID = "radio_settings";
 
-_phoneObject setVariable [_settingsID, _settings, true];
-TFAR_OverrideActiveLRRadio = if (_status) then { [_phoneObject, _settingsID] } else { nil };
+TFAR_OverrideActiveLRRadio = if (_status) then {
+    private _frequencies = [];
 
+    // hardcode 9 channels with frequency. probably only necessary for channel 0
+    for "_i" from 0 to 9 step 1 do {
+            _frequencies set [_i, _frequency];
+    };
 
-if (!isNil "TFAR_OverrideActiveLRRadio") then {
+    // generate radio settings for fake radio
+    private _settings = [0, TFAR_default_radioVolume, _frequencies, 0, _encryptionKey, -1, 0, nil, false, true];
+    private _settingsID = "radio_settings";
+    _phoneObject setVariable [_settingsID, _settings, true];
+
+    // fill tf_lr_active_radio, reasons unknown (seems to be necessary for called guy)
     if (isNil "TF_lr_active_radio") then {
         missionNameSpace setVariable ["TF_lr_active_radio", TFAR_OverrideActiveLRRadio];
         diag_log format ["setting TF_lr_active_radio manually, as not defined before.."];
@@ -44,6 +42,19 @@ if (!isNil "TFAR_OverrideActiveLRRadio") then {
     TFAR_OverrideActiveLRRadio call TFAR_fnc_setActiveLrRadio;
     
 
+    // log all the shit
     systemChat format ["grad-landline-debug: TFAR_OverrideActiveLRRadio: %1, settings are %2", TFAR_OverrideActiveLRRadio, _settings];
     diag_log format ["grad-landline-debug: TFAR_OverrideActiveLRRadio: %1, settings are %2", TFAR_OverrideActiveLRRadio, _settings];
+
+    
+    [_phoneObject, _settingsID] 
+
+} else { 
+    // remove radio settings from fake radio
+    _phoneObject setVariable [_settingsID, [], true];
+
+    diag_log format ["grad-landline-debug: TFAR_OverrideActiveLRRadio set to nil"];
+
+    nil 
+
 };
