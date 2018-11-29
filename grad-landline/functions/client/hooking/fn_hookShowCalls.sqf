@@ -82,6 +82,11 @@ _button ctrlSetText "Einklinken";
 _button ctrlAddEventHandler ["ButtonClick", {
         params ["_ctrl"];
 
+        // we cant start hooking if a hook is running, so end it
+        if (player getVariable ["GRAD_landline_hooking", false]) then {
+            [] call GRAD_landline_fnc_hookEnd;
+        };
+
         private _dialog = uiNamespace getVariable ['grad_landline_rscPhoneBook',controlNull];
         private _listBox = _dialog displayCtrl 1000;
 
@@ -95,7 +100,5 @@ _button ctrlAddEventHandler ["ButtonClick", {
         private _objCaller = player getVariable ["GRAD_landline_objCaller", objNull];
 
         
-        [_objCaller, _objReceiver] spawn GRAD_landline_fnc_hookStart;
-
-        closeDialog 0;
+        [_objCaller, _objReceiver] call GRAD_landline_fnc_hookStart;
 }];

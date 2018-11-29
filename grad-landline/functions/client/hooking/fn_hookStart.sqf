@@ -22,15 +22,18 @@ _storedData params [
 
 // let server handle receiver status
 if (!isNull _player1) then {
-    [] remoteExec ["GRAD_landline_fnc_hookSound", _player1];
+    [] remoteExec ["GRAD_landline_fnc_soundHookRemote", _player1];
 };
 if (!isNull _player2) then {
-    [] remoteExec ["GRAD_landline_fnc_hookSound", _player2];
+    [] remoteExec ["GRAD_landline_fnc_soundHookRemote", _player2];
 };
+
+[] call GRAD_landline_fnc_soundHookStart;
 
 systemChat format ["hookStart - hooking into call from %1 to %2", _number1, _number2];
 
 // activate tfar stuff
-[_callerPhoneObject, _callerNumber + _receiverNumber] call GRAD_landline_fnc_callPluginActivate;
+[_phone1, _number1 + _number2] call GRAD_landline_fnc_callPluginActivate;
 
-player setVariable ['GRAD_landline_hooking', true];
+player setVariable ["GRAD_landline_hooking", true];
+player setVariable ["GRAD_landline_hookingCache", _storedData];

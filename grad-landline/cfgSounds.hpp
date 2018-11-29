@@ -1,4 +1,23 @@
+class GRAD_landline_hookStart
+{
+    name = "hookStart";
+    sound[] = {"\grad-landline\sounds\hookStart.ogg",0.75,1};
+    titles[] = {};
+};
 
+class GRAD_landline_hookEnd
+{
+    name = "hookEnd";
+    sound[] = {"\grad-landline\sounds\hookEnd.ogg",0.75,1};
+    titles[] = {};
+};
+
+class GRAD_landline_hookRemote
+{
+    name = "hookRemote";
+    sound[] = {"\grad-landline\sounds\hookRemote.ogg",0.75,1};
+    titles[] = {};
+};
 
 
 class GRAD_landline_phoneBeep1

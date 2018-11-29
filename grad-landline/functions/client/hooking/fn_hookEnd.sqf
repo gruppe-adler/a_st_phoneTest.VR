@@ -1,7 +1,5 @@
-params ["_object"];
-
 // storedData
-private _storedData = [_object] call GRAD_landline_fnc_callGetInfo;
+private _storedData = player getVariable ["GRAD_landline_hookingCache", []];
 
 _storedData params [
     ["_phone1", objNull], 
@@ -15,8 +13,12 @@ _storedData params [
 
 
 // tfar
-[_object, _number1 + _number2] call GRAD_landline_fnc_callPluginDeactivate;
+[_phone1, _number1 + _number2] call GRAD_landline_fnc_callPluginDeactivate;
 
 // debug whats happening
 systemChat "hanging up from hooking";
+
+[] call GRAD_landline_fnc_soundHookEnd;
+
 player setVariable ['GRAD_landline_hooking', false];
+player setVariable ['GRAD_landline_hookingCache', []];
