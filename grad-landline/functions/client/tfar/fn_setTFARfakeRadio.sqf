@@ -34,13 +34,6 @@ TFAR_OverrideActiveLRRadio = if (_status) then {
     private _settings = [0, TFAR_default_radioVolume, _frequencies, 2, _encryptionKey, -1, 2, nil, false, true];
     
     _phoneObject setVariable [_settingsID, _settings, true];
-
-    // fill tf_lr_active_radio, reasons unknown (seems to be necessary for called guy)
-    if (isNil "TF_lr_active_radio") then {
-        missionNameSpace setVariable ["TF_lr_active_radio", TFAR_OverrideActiveLRRadio];
-        diag_log format ["setting TF_lr_active_radio manually, as not defined before.."];
-    };
-    TFAR_OverrideActiveLRRadio call TFAR_fnc_setActiveLrRadio;
     
     // log all the shit
     systemChat format ["grad-landline-debug: TFAR_OverrideActiveLRRadio: %1, settings are %2", TFAR_OverrideActiveLRRadio, _settings];
@@ -56,6 +49,15 @@ TFAR_OverrideActiveLRRadio = if (_status) then {
 
     diag_log format ["grad-landline-debug: TFAR_OverrideActiveLRRadio set to nil"];
 
-    nil 
+    nil
 
+};
+
+if (!(isNil "TFAR_OverrideActiveLRRadio")) then {
+     // fill tf_lr_active_radio, reasons unknown (seems to be necessary for called guy)
+    if (isNil "TF_lr_active_radio") then {
+        missionNameSpace setVariable ["TF_lr_active_radio", TFAR_OverrideActiveLRRadio];
+        diag_log format ["setting TF_lr_active_radio manually, as not defined before.."];
+    };
+    TFAR_OverrideActiveLRRadio call TFAR_fnc_setActiveLrRadio;
 };
