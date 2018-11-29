@@ -54,9 +54,13 @@ class GRAD_landline {
         file = grad-landline\functions\client\sounds;
 
         class soundBusy;
+        class soundHookEnd;
+        class soundHookRemote;
+        class soundHookStart;
         class soundInterrupted;
         class soundRing;
         class soundWaiting;
+
     };
 
     class client_far {

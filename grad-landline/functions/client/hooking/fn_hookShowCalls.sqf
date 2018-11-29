@@ -39,16 +39,17 @@ _map ctrlAddEventHandler ["Draw","
     private _map = (_this select 0);
     private _lines = missionNamespace getVariable ['GRAD_LANDLINE_CALLS_RUNNING_PHONES', []];
 
-
-    {
-        private _pos1 = getPos (_x select 0);
-        private _pos2 = getPos (_x select 1);
-    _map drawLine [
-        _pos1,
-        _pos2,
-        [1,0,0,1]
-    ];
-    } forEach _lines;
+    if (count _lines > 0) then {
+        {
+            private _pos1 = getPos (_x select 0);
+            private _pos2 = getPos (_x select 1);
+        _map drawLine [
+            _pos1,
+            _pos2,
+            [1,0,0,1]
+        ];
+        } forEach _lines;
+    };
     "
 ];
 
@@ -71,7 +72,10 @@ _map ctrlAddEventHandler ["Draw","
 
 
 private _listBox = _dialog displayCtrl 1000;
-lbSetCurSel [_listBox, 0];
+
+if (lbSize _listBox > 0) then {
+    lbSetCurSel [_listBox, 0];
+};
 
 
 

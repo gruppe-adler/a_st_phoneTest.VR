@@ -2,7 +2,7 @@ params ["_phoneObject", "_lineNumber"];
 
 private _encryptionKey = ""; // must be nothing
 
-[_phoneObject, _lineNumber, _encryptionKey, false] call GRAD_landline_fnc_setTFARfakeRadio;
+
 
 private _hintText = format[
 							"Anruf beendet",
@@ -23,6 +23,9 @@ private _pluginCommand = format[
 							];
 
 [_hintText,_pluginCommand, [0,nil] select TFAR_showTransmittingHint] call TFAR_fnc_processTangent;
+
+// set tfar fake radio stuff AFTER tangent release?
+[_phoneObject, _lineNumber, _encryptionKey, false] call GRAD_landline_fnc_setTFARfakeRadio;
 
 TF_tangent_lr_pressed = false; // necessary?
 

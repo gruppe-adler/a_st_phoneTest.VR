@@ -31,7 +31,7 @@ TFAR_OverrideActiveLRRadio = if (_status) then {
     };
 
     // generate radio settings for fake radio
-    private _settings = [0, TFAR_default_radioVolume, _frequencies, 0, _encryptionKey, -1, 0, nil, false, true];
+    private _settings = [0, TFAR_default_radioVolume, _frequencies, 2, _encryptionKey, -1, 0, nil, false, true];
     
     _phoneObject setVariable [_settingsID, _settings, true];
 
@@ -48,7 +48,9 @@ TFAR_OverrideActiveLRRadio = if (_status) then {
 
     [_phoneObject, _settingsID] 
 
-} else { 
+} else {
+
+    nil call TFAR_fnc_setActiveLrRadio;
     // remove radio settings from fake radio
     _phoneObject setVariable [_settingsID, [], true];
 

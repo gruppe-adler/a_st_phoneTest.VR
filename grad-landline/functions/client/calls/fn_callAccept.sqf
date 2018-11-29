@@ -1,7 +1,7 @@
 /*
     
     callAccept is always executed by player2
-
+    [cursorObject] call GRAD_landline_fnc_callAccept;
 */
 
 params ["_object"];
