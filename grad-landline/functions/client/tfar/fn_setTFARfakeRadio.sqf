@@ -35,9 +35,10 @@ TFAR_OverrideActiveLRRadio = if (_status) then {
     
     _phoneObject setVariable [_settingsID, _settings, true];
     
-    // log all the shit
-    systemChat format ["grad-landline-debug: TFAR_OverrideActiveLRRadio: %1, settings are %2", TFAR_OverrideActiveLRRadio, _settings];
-    diag_log format ["grad-landline-debug: TFAR_OverrideActiveLRRadio: %1, settings are %2", TFAR_OverrideActiveLRRadio, _settings];
+        // log all the shit
+    systemChat format ["grad-landline-debug: TFAR_OverrideActiveLRRadio: %1, settings are %2", _phoneObject, _settings];
+    diag_log format ["grad-landline-debug: TFAR_OverrideActiveLRRadio: %1, settings are %2", _phoneObject, _settings];
+
 
     [_phoneObject, _settingsID] 
 
@@ -45,7 +46,7 @@ TFAR_OverrideActiveLRRadio = if (_status) then {
 
     nil call TFAR_fnc_setActiveLrRadio;
     // remove radio settings from fake radio
-    _phoneObject setVariable [_settingsID, [], true];
+    _phoneObject setVariable [_settingsID, nil, true];
 
     diag_log format ["grad-landline-debug: TFAR_OverrideActiveLRRadio set to nil"];
 
