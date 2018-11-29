@@ -50,7 +50,6 @@ switch (_state) do {
 		// set self to idle state
 		[_object, "idle"] call GRAD_landline_fnc_callSetStatus;
 
-		
 		[_object, "GRAD_landline_phoneHangUp"] remoteExec ["say3D", [0,-2] select isDedicated];
 
 		// debug whats happening
