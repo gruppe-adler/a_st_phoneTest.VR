@@ -18,6 +18,7 @@ _position set [2, _maxHeight/2];
 
 
 private _dummy = createVehicle ["Sign_Sphere25cm_Geometry_F", _position, [], 0, "CAN_COLLIDE"];
+hideObjectGlobal _dummy;
 
 // todo hide dummy visually
 
