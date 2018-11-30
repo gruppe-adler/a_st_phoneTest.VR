@@ -44,7 +44,7 @@ TFAR_OverrideActiveLRRadio = if (_status) then {
 
 } else {
 
-    nil call TFAR_fnc_setActiveLrRadio;
+    missionNameSpace setVariable ["TF_lr_active_radio", nil];
     // remove radio settings from fake radio
     _phoneObject setVariable [_settingsID, nil, true];
 
