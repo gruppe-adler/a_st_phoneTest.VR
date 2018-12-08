@@ -2,6 +2,7 @@ enableDebugConsole = 1;
 
 #include "grad-landline\dialogs\rscPhoneBook.hpp"
 #include "grad-landline\dialogs\rscRotary.hpp"
+#include "grad-landline\dialogs\rscKeypad.hpp"
 
 
 class cfgFunctions {

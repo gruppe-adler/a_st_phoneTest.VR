@@ -224,3 +224,28 @@ class GRAD_landline_rotary_9_up
     sound[] = {"\grad-landline\sounds\rotary_9_up.ogg",0.75,1};
     titles[] = {};
 };
+
+
+
+
+class GRAD_landline_keypad_1
+{
+    name = "keypad_1";
+    sound[] = {"\grad-landline\sounds\keypad_1.ogg",5,1};
+    titles[] = {};
+};
+
+class GRAD_landline_keypad_2
+{
+    name = "keypad_2";
+    sound[] = {"\grad-landline\sounds\keypad_2.ogg",5,1};
+    titles[] = {};
+};
+
+
+class GRAD_landline_keypad_3
+{
+    name = "keypad_3";
+    sound[] = {"\grad-landline\sounds\keypad_3.ogg",5,1};
+    titles[] = {};
+};

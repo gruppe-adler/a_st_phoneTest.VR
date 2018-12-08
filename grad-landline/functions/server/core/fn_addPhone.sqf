@@ -13,7 +13,7 @@
 */
 
 
-params ["_object", ["_isRotary", false], ["_number", "none"], ["_canOnlyCallNumber", "none"]];
+params ["_object", ["_number", "none"], ["_isRotary", false], ["_canOnlyCallNumber", "none"]];
 
 
 if (!isServer) exitWith {};
@@ -25,6 +25,11 @@ missionNamespace setVariable ["GRAD_landline_phoneCount", _id, true];
 
 _object setVariable ["GRAD_landline_isPhone", true, true];
 _object setVariable ["GRAD_landline_phoneID", _id, true];
+_object setVariable ["GRAD_landline_isRotary", _isRotary, true];
+
+if (_canOnlyCallNumber != "none") then {
+    _object setVariable ["GRAD_landline_directConnect", _canOnlyCallNumber, true];
+};
 
 
 [_object, _number] call GRAD_landline_fnc_assignPhoneNumber;

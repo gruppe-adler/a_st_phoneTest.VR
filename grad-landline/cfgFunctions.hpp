@@ -14,6 +14,13 @@ class GRAD_landline {
         class onPhoneBookMapClick;
     };
 
+     class client_keypad {
+        file = grad-landline\functions\client\keypad;
+
+        class keypadDialNumber;
+        class keypadProcessInput;
+    };
+
     class client_rotary {
         file = grad-landline\functions\client\rotary;
 
