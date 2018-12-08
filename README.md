@@ -3,7 +3,7 @@
 This project is heavily WIP. Please come back later.
 
 ## Requirements
-TFAR 1.0-303 (!)
+1.0-PreRelease-1.0-dev.303 (!)
 
 
 
