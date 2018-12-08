@@ -8,6 +8,7 @@ class GRAD_landline {
         class cleanPhoneBookMap;
         class conditionAccept;
         class conditionCall;
+        class conditionDirectCall;
         class conditionEnd;
         class createPhoneList;
         class onPhoneBookEntrySelect;

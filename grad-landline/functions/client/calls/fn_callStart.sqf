@@ -7,12 +7,17 @@ private _callerNumber = _callerPhoneObject getVariable ["GRAD_LANDLINE_NUMBER_AS
 private _receiverNumber = _receiverPhoneObject getVariable ["GRAD_LANDLINE_NUMBER_ASSIGNED", "none"];
 private _isRotary = _callerPhoneObject getVariable ["GRAD_landline_isRotary", false];
 
+
 private ["_dialing"];
+
+
 if (_isRotary) then {
     _dialing = [_receiverNumber] spawn GRAD_landline_fnc_rotaryDialNumber;
 } else {
     _dialing = [_receiverNumber] spawn GRAD_landline_fnc_keypadDialNumber;
 };
+
+
 
 player setVariable ['GRAD_landline_isCalling', true];
 
