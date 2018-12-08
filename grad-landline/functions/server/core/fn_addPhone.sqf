@@ -4,10 +4,16 @@
 
 	[this] call GRAD_landline_fnc_addPhone;
 
+	* Arguments:
+	* Object which will get the phone functionality <object>
+	* If the phone is a rotary phone <bool> <optional>
+	* Force Number which will be assigned <string> <optional>
+	* Force Number which – when set – is the only number automatically called (for one directional phone system) <string> <optional>
+
 */
 
 
-params ["_object", ["_number", "none"]];
+params ["_object", ["_isRotary", false], ["_number", "none"], ["_canOnlyCallNumber", "none"]];
 
 
 if (!isServer) exitWith {};
