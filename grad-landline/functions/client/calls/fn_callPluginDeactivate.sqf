@@ -27,13 +27,17 @@ private _pluginCommand = format[
 
 // [parseText "Anruf beendet", 3] call TFAR_fnc_showHint;
 
-// set tfar fake radio stuff AFTER tangent release?
-[_phoneObject, _lineNumber, _encryptionKey, false] call GRAD_landline_fnc_setTFARfakeRadio;
-
 TF_tangent_lr_pressed = false; // necessary?
 
 // workaround for constant activation?
-"task_force_radio_pipe" callExtension (format ["RELEASE_ALL_TANGENTS	%1~", name player]);
+player call TFAR_fnc_releaseAllTangents; // "task_force_radio_pipe" callExtension (format ["RELEASE_ALL_TANGENTS	%1~", name player]);
+
+// set tfar fake radio stuff AFTER tangent release?
+[_phoneObject, _lineNumber, _encryptionKey, false] call GRAD_landline_fnc_setTFARfakeRadio;
 
 systemChat format ["grad-landline-debug: linenumber: %1, encryption: %2", _lineNumber, _encryptionKey];
 diag_log format ["grad-landline-debug: linenumber: %1, encryption: %2", _lineNumber, _encryptionKey];
+diag_log format [
+	"grad-landline-debug: TF_lr_active_radio is nil: %1, TFAR_OverrideActiveLRRadio is nil: %2", 
+	isNil "TF_lr_active_radio", isNil "TFAR_OverrideActiveLRRadio"
+];

@@ -25,7 +25,8 @@ _object addAction [
     "[_this, _target] call GRAD_landline_fnc_conditionCall"
 ];
 
-
+/*
+// later implementation for grenzmeldenetz
 _object addAction [
     "Start Call",
     {
@@ -41,11 +42,12 @@ _object addAction [
                 };
             } forEach _allPhones;
 
-            [_target, _targetPhone] call GRAD_landline_fnc_startCall;
+            [_target, _targetPhone] call GRAD_landline_fnc_callStart;
     },
     [],9,true,true,"",
     "[_this, _target] call GRAD_landline_fnc_conditionDirectCall"
 ];
+*/
 
 _object addAction [
     "Accept Call",

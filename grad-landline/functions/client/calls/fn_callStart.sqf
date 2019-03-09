@@ -30,6 +30,7 @@ player setVariable ['GRAD_landline_isCalling', true];
         [player, _callerPhoneObject] call GRAD_landline_fnc_callSetOwner; // set self to owner of current phone
 
         // prevent calling yourself
+        // [WORKS]
         if (_callerPhoneObject isEqualTo _receiverPhoneObject) exitWith {
             hint "cant call yourself, dumbass";
 
@@ -83,7 +84,8 @@ player setVariable ['GRAD_landline_isCalling', true];
            
         } else {
             [_callerPhoneObject, "busy"] call GRAD_landline_fnc_callSetStatus;
-            [_receiverPhoneObject] call GRAD_landline_fnc_soundBusy;
+            // todo check if this fix helps busy beep when calling busy lines - should beep now
+            [_callerPhoneObject] call GRAD_landline_fnc_soundBusy;
 
             systemChat "callStart - busy";
         };

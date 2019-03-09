@@ -16,3 +16,5 @@ _phone2 setVariable [
     [_phone1, _phone2, _number1, _number2, _player1, _player2], 
     true
 ];
+
+diag_log format ["callStart - saveInfo %1 %2", _identifier, [_phone1, _phone2, _number1, _number2, _player1, _player2]];
